@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+
+    /* Global styles */
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .some-custom-class{
+        @apply text-blue-500;
+        @apply font-bold;
+    }
+
+}
