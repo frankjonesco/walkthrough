@@ -16,4 +16,7 @@ use App\Http\Controllers\SiteController;
 
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'showHome');
+    Route::get('/about', 'showAbout');
+    Route::get('/posts', 'showPosts');
+    Route::get('/contact', 'showContact');
 });

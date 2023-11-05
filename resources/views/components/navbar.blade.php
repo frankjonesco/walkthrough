@@ -1,8 +1,10 @@
 <nav class="flex justify-between p-10 bg-slate-900 text-sky-50">
-    <div class="font-bold">
-        {{config('app.name')}}
+    <div class="font-bold text-3xl">
+        <a href="/">
+            {{config('app.name')}}
+        </a>
     </div>
-    <ul class="flex gap-5 hover:text-red-500">
+    <ul class="flex gap-5">
         <li>
             <a href="/">
                 Home

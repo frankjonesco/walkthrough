@@ -10,4 +10,19 @@ class SiteController extends Controller
     public function showHome(){
         return view('home');
     }
+
+    // Show about
+    public function showAbout(){
+        return view('about');
+    }
+
+    // Show posts
+    public function showPosts(){
+        return view('posts');
+    }
+
+    // Show contact
+    public function showContact(){
+        return view('contact');
+    }
 }
