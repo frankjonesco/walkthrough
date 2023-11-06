@@ -68,6 +68,24 @@
     }
 
 
+    /* Form elements */
+
+    label{
+        @apply text-sm;
+        @apply uppercase;
+        @apply text-gray-500;
+        @apply mb-3;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=password]{
+        @apply text-2xl;
+        @apply border;
+        @apply mb-10;
+    }
+
+
     
 
 }
