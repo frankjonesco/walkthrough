@@ -1,3 +1,13 @@
+/* Font Awesome */
+
+@import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-free/css/solid.min.css";
+@import "@fortawesome/fontawesome-free/css/regular.min.css";
+@import "@fortawesome/fontawesome-free/css/brands.min.css";
+
+
+/* Tailwind */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,12 +56,12 @@
 
     .card-form-thin button{
         @apply mt-4;
+        @apply mb-10;
     }
 
     .card-form-thin p{
         @apply text-sm;
         @apply text-center;
-        @apply mt-10;
     }
 
 
@@ -63,7 +73,7 @@
         @apply text-inherit;
     }
 
-    nav>ul>li>a{
+    nav>ul>li a{
         @apply text-inherit;
         @apply hover:text-red-500;
     }
@@ -119,19 +129,81 @@
 
     /* Form elements */
 
+    div.form-element{
+        @apply mb-6;
+        @apply flex;
+        @apply flex-col;
+    }
+
     label{
         @apply text-sm;
         @apply uppercase;
         @apply text-gray-500;
         @apply mb-3;
+        
     }
 
     input[type=text],
     input[type=email],
     input[type=password]{
-        @apply text-2xl;
+        @apply text-lg;
         @apply border;
-        @apply mb-6;
+        @apply px-4;
+        @apply py-2;
+    }
+
+    p.form-error{
+        @apply text-red-500;
+        @apply text-xs;
+        @apply mt-3;
+    }
+
+
+    /* Alerts */ 
+
+    .alert{
+        @apply px-6;
+        @apply py-4;
+        @apply w-min;
+        @apply whitespace-nowrap;
+        @apply border;
+        @apply rounded;
+        @apply mx-auto;
+    }
+
+    .alert-info{
+        @apply alert;
+        @apply bg-sky-100;
+        @apply border-blue-300;
+        @apply text-sky-800;
+    }
+
+    .alert-danger{
+        @apply alert;
+        @apply bg-rose-100;
+        @apply border-red-300;
+        @apply text-rose-800;
+    }
+
+    .alert-warning{
+        @apply alert;
+        @apply bg-yellow-100;
+        @apply border-amber-300;
+        @apply text-yellow-800;
+    }
+
+    .alert-success{
+        @apply alert;
+        @apply bg-lime-100;
+        @apply border-green-300;
+        @apply text-lime-800;
+    }
+
+    .alert-primary{
+        @apply alert;
+        @apply bg-purple-100;
+        @apply border-indigo-300;
+        @apply text-purple-800;
     }
 
 

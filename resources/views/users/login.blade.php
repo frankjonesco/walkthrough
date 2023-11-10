@@ -3,13 +3,19 @@
         <x-card-form-thin>
             <h1>Log in</h1>
             <h2>Log in to your account</h2>
-            <form action="/register" class="flex flex-col">
+            <form action="/users/authenticate" method="POST" class="flex flex-col">
                 @csrf
-                <label for="email">Email</label>
-                <input type="email" name="email">
+                {{-- Email --}}
+                <div class="form-element">
+                    <label for="email">Email</label>
+                    <input type="email" name="email">
+                </div>
                 
-                <label for="password">Password</label>
-                <input type="password" name="password">
+                {{-- Password --}}
+                <div class="form-element">
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                </div>
 
                 <button type="submit" class="btn btn-green">Log in</button>
 

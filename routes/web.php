@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,29 @@ Route::controller(SiteController::class)->group(function () {
 });
 
 
-// UserController routes
-Route::controller(UserController::class)->group(function () {
+
+
+// USER CONTROLLER
+
+// UserController routes (auth only)
+Route::controller(UserController::class)->middleware('auth')->group(function(){
+    Route::post('/logout', 'logout');
+});
+
+// UserController routes (guest only)
+Route::controller(UserController::class)->middleware('guest')->group(function () {
     Route::get('/login', 'showLoginForm');
     Route::get('/signup', 'showRegistrationForm');
+    Route::post('/users/store', 'store');
+    Route::post('/users/authenticate', 'authenticate');
+});
+
+
+
+
+// DASHBORD CONTROLLER
+
+// DashboardController (auth only)
+Route::controller(DashboardController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard', 'index');
 });

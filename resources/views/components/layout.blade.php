@@ -11,7 +11,11 @@
 </head>
 <body>
     <x-navbar />
+    
     {{$slot}}
     
+    {{-- Toast messages --}}
+    <x-toast-message />
+
 </body>
 </html>

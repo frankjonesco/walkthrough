@@ -25,15 +25,30 @@
                 Contact
             </a>
         </li>
-        <li>
-            <a href="/login">
-                Login
-            </a>
-        </li>
-        <li>
-            <a href="/signup">
-                Sign up
-            </a>
-        </li>
+
+        @auth
+            <li>
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <a href="#" onclick="this.parentNode.submit()">Logout</a>
+                </form>
+            </li>
+        @else
+            <li>
+                <a href="/login">
+                    Login
+                </a>
+            </li>
+            <li>
+                <a href="/signup">
+                    Sign up
+                </a>
+            </li>
+        @endauth
     </ul>
 </nav>
