@@ -16,8 +16,8 @@
             </a>
         </li>
         <li>
-            <a href="/posts">
-                Blog posts
+            <a href="/articles">
+                News articles
             </a>
         </li>
         <li>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -16,12 +17,34 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+
+
+// SITE CONTROLLER
+
 // SiteController routes
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'showHome');
     Route::get('/about', 'showAbout');
-    Route::get('/posts', 'showPosts');
+    Route::get('/articles', 'showPosts');
     Route::get('/contact', 'showContact');
+});
+
+
+
+// ARTICLES CONTROLLER
+
+
+
+// ArticleController routes (auth only)
+Route::controller(ArticleController::class)->middleware('auth')->group(function () {
+    Route::get('/articles/create', 'create');
+    Route::post('/articles/store', 'store');
+});
+
+// ArticleController routes (all users)
+Route::controller(ArticleController::class)->group(function () {
+    Route::get('/articles', 'index');
+    Route::get('/articles/{article}', 'show');
 });
 
 
