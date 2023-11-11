@@ -44,4 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+    // HELPER FUNCTIONS
+
+    // Get full name
+
+    public function fullName(){
+        return $this->first_name.' '.$this->last_name;
+    }
 }

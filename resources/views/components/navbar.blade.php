@@ -1,4 +1,4 @@
-<nav class="flex justify-between p-10 bg-slate-900 text-sky-50">
+<nav id="topNav">
     <div class="font-bold text-3xl">
         <a href="/">
             {{config('app.name')}}
@@ -10,21 +10,21 @@
                 Home
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a href="/about">
                 About
             </a>
-        </li>
+        </li> --}}
         <li>
             <a href="/articles">
                 News articles
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a href="/contact">
                 Contact
             </a>
-        </li>
+        </li> --}}
 
         @auth
             <li>

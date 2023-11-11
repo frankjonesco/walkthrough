@@ -10,12 +10,14 @@
         @endauth
         @if(count($articles) > 0)
             {{-- List article results --}}
-            <div class="w-1/3 mx-auto bg-gray-100 border border-gray-300 flex flex-col mb-20">
+            <div class="w-1/3 mx-auto bg-gray-100 border border-gray-300 flex flex-col my-10">
                 
                 @foreach ($articles as $i => $article)
 
                     <div class="article-card-sm @apply {{$loop->last ?: 'border-b pb-1'}}">
-                        <div class="article-image"></div>
+                        <div class="article-image">
+                            <img src="{{$article->getImage()}}">
+                        </div>
                         <span class="text-xl font-bold block">
                             {{$article->title}}
                         </span>
@@ -25,7 +27,7 @@
                         </span>
 
                         <span class="text-lg block my-3">
-                            <a href="/articles/{{$article->id}}" class="btn-blue-xs">
+                            <a href="/articles/{{$article->hex}}" class="btn-blue-xs">
                                 <i class="fa fa-arrow-right mr-1"></i>
                                 View article
                             </a>

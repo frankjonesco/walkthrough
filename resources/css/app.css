@@ -21,6 +21,10 @@
         padding: 0;
     }
 
+    body{
+        @apply mt-[8rem];
+    }
+
 
     /* Containers */
 
@@ -69,14 +73,33 @@
 
     /* Navigation */
 
-    nav>div>a{
+    nav#topNav{
+        @apply fixed;
+        @apply w-screen;
+        @apply top-0;
+        @apply h-[8rem];
+        @apply px-10;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply bg-slate-900;
+        @apply text-sky-50;
+    }
+
+    nav#topNav>div>a{
         @apply text-inherit;
     }
 
-    nav>ul>li a{
+    nav#topNav>ul{
+        @apply items-center;
+    }
+
+    nav#topNav>ul>li a{
         @apply text-inherit;
         @apply hover:text-red-500;
     }
+
+    
 
 
     /* Headings */
@@ -84,7 +107,8 @@
     h1{
         @apply text-5xl;
         @apply text-center;
-        @apply py-16;
+        @apply pb-10;
+        @apply pt-16;
         @apply font-extrabold;
     }
 
@@ -100,7 +124,6 @@
 
     .btn-row{
         @apply text-center;
-        @apply my-10;
     }
 
     .btn{
@@ -160,6 +183,13 @@
 
     a{
         @apply text-sky-600;
+    }
+
+
+    /* Text */
+
+    p{
+        @apply mb-6;
     }
 
 
@@ -254,8 +284,7 @@
         @apply bg-gradient-to-tr;
         @apply from-cyan-100;
         @apply to-teal-300;
-        @apply border;
-        @apply border-cyan-400;
+        @apply shadow;
         @apply mb-2;
     }
 
@@ -275,6 +304,18 @@
 
     .article-card .article-image{
         @apply !mb-8;
+    }
+
+    .article-card .publish-info{
+        @apply flex;
+        @apply justify-between;
+        @apply border-b;
+        @apply border-slate-300;
+        @apply mb-6;
+        @apply p-3;
+        @apply text-sm;
+        @apply font-normal; 
+        @apply text-slate-400;
     }
 
 
