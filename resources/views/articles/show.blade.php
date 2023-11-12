@@ -12,6 +12,7 @@
             <div class="article-image">
                 <img src="{{$article->getImage()}}">
             </div>
+            <span class="mb-5 block border-b border-t py-3 text-sm">Views: {{$article->views}}</span>
             <span>{!!nl2p($article->body)!!}</span>
         </div>
     </x-container>

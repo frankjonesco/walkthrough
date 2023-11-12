@@ -8,13 +8,27 @@
                 {{-- Email --}}
                 <div class="form-element">
                     <label for="email">Email</label>
-                    <input type="email" name="email">
+                    <input type="email" name="email" value="{{old('email')}}">
+
+                    @error('email')
+                        <p class="form-error">
+                            {{$message}}
+                        </p>
+                    @enderror
+
                 </div>
                 
                 {{-- Password --}}
                 <div class="form-element">
                     <label for="password">Password</label>
                     <input type="password" name="password">
+
+                    @error('password')
+                        <p class="form-error">
+                            {{$message}}
+                        </p>
+                    @enderror
+
                 </div>
 
                 <button type="submit" class="btn btn-green">Log in</button>

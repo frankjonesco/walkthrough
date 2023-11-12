@@ -33,12 +33,16 @@ Route::controller(SiteController::class)->group(function () {
 
 // ARTICLES CONTROLLER
 
-
-
 // ArticleController routes (auth only)
 Route::controller(ArticleController::class)->middleware('auth')->group(function () {
     Route::get('/articles/create', 'create');
     Route::post('/articles/store', 'store');
+    Route::get('/articles/{article}/edit', 'edit');
+    Route::post('/articles/{article}/update', 'update');
+    Route::get('/articles/{article}/image', 'editImage');
+    Route::post('/articles/{article}/image/upload', 'uploadImage');
+    Route::get('/articles/{article}/image/crop', 'cropImage');
+    Route::post('/articles/{article}/image/render', 'renderImage');
 });
 
 // ArticleController routes (all users)
