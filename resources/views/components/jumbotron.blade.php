@@ -6,7 +6,7 @@
                 <a href="/about" class="btn-success">More info</a>
             </li>
             <li>
-                <a href="/contact" class="btn-default">Contact us now</a>
+                <a href="/contact" class="btn-default">Contact us</a>
             </li>
         </ul>
     </div>

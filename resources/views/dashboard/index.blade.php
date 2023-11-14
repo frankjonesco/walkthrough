@@ -28,13 +28,14 @@
                                     <i class="fa fa-image"></i>
                                     Change image
                                 </a>
-                                <a href="/articles/{{$article->hex}}/delete" class="btn-danger-xs">
+                                <a href="#" class="btn-danger-xs">
                                     <i class="fa fa-trash"></i>
                                     Delete
                                 </a>
                             </div>
                         </div>
                         <x-articles-delete-popup :article="$article" />
+                       
                     @endforeach
                 @else
                     <x-alert class="alert-info" message="No articles to display." />
