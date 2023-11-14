@@ -31,7 +31,7 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-green">Log in</button>
+                <button type="submit" class="btn-success">Log in</button>
 
                 <p>Don't have an account yet?<br><a href="/signup">Sign up</a></p>
             </x-card-form-thin>

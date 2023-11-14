@@ -34,11 +34,12 @@
                                 </a>
                             </div>
                         </div>
+                        <x-articles-delete-popup :article="$article" />
                     @endforeach
                 @else
                     <x-alert class="alert-info" message="No articles to display." />
                 @endif
             </div>
         </div>
-    </x-container>
+    </x-container>    
 </x-layout>

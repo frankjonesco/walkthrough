@@ -3,10 +3,10 @@
         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</h2>
         <ul class="flex justify-center gap-3 my-6">
             <li>
-                <a href="/about" class="btn btn-green">More info</a>
+                <a href="/about" class="btn-success">More info</a>
             </li>
             <li>
-                <a href="/contact" class="btn btn-gray">Contact us</a>
+                <a href="/contact" class="btn-default">Contact us</a>
             </li>
         </ul>
     </div>
