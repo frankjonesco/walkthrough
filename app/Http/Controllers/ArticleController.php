@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -117,5 +118,21 @@ class ArticleController extends Controller
         $article->saveRenderedImage($data);
 
         return redirect('dashboard')->with('message', 'Your image has been cropped.');
+    }
+
+    // Show confirm delete form
+    public function showConfirmDeleteForm(Article $article){
+        return view('articles.confirm-delete', [
+            'article' => $article
+        ]);
+    }
+
+    // Destroy
+    public function destroy(Request $request){
+        $article = Article::where('hex', $request->hex)->first();
+        $article->delete();
+        File::deleteDirectory(public_path('images/articles/'.$request->hex));
+
+        return redirect('dashboard')->with('success', 'The article was permanently deleted.');
     }
 }
