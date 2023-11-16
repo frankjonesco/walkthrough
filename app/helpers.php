@@ -21,7 +21,7 @@
 
             $time = $date;
             // 2 May 2023 at 15:42
-            $date_format = 'j F Y';
+            $date_format = 'F j, Y';
             $formatted_date = $date->format($date_format);
                 
             $time_format = 'H:i';

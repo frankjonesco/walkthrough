@@ -85,6 +85,70 @@
     }
 
 
+    .articles-grid{
+        @apply grid;
+        @apply grid-cols-4;
+        @apply gap-3;
+        @apply border-t;
+        @apply border-gray-200;
+        @apply pt-5;
+    }
+
+    .article-card-sm{
+        @apply flex;
+        @apply flex-col;
+        @apply border-b;
+        @apply !border-gray-200;
+        @apply pb-6
+    }
+
+    .article-card-sm>a>img{
+        @apply mb-3;
+        @apply shadow;
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-in-out;
+        @apply hover:-translate-y-1.5;
+    }
+
+    .article-card-sm>a>span.title{
+        @apply text-lg;
+        @apply font-bold;
+        @apply leading-5;
+        @apply tracking-tight;
+        @apply mb-1;
+        @apply no-underline;
+        @apply px-0.5;
+        @apply py-0.5;
+        @apply block;
+        @apply hover:bg-yellow-300;
+        @apply hover:text-gray-900;
+        @apply !text-gray-900;
+    }
+
+    .article-card-sm a{
+        @apply text-inherit;
+    }
+
+    .article-card-sm>span.date{
+        @apply font-light;
+        @apply text-sm;
+        @apply block;
+        @apply mb-2;
+        @apply mt-0.5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .article-card-sm>span.views{
+        @apply font-light;
+        @apply text-xs;
+        @apply block;
+        @apply mb-2;
+        @apply mt-0.5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
 
 
     /* Navigation */
@@ -250,18 +314,26 @@
     /* Headings */
 
     h1{
-        @apply text-5xl;
+        @apply text-4xl;
+        @apply md:text-5xl;
+        @apply lg:text-[56px];
+        @apply font-bold;
+        @apply leading-10;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1;
+        letter-spacing: -0.0525em;
         @apply text-center;
-        @apply pb-10;
-        @apply pt-16;
-        @apply font-extrabold;
+        @apply mt-8;
+        @apply mb-10;
     }
 
     h2{
-        @apply text-3xl;
+        @apply text-lg;
+        @apply md:text-xl;;
+        @apply font-light;
         @apply text-center;
-        @apply py-6;
-        @apply font-bold;
+        @apply mb-12;
+        font-family: 'Poppins', sans-serif;
     }
 
 

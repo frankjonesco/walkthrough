@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
     // Show homepage
     public function showHome(){
-        return view('home');
+        $articles = Article::where('status', 'public')->latest()->get();
+        return view('home', [
+            'articles' => $articles
+        ]);
     }
 
     // Show about
