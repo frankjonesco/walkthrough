@@ -23,6 +23,7 @@
 
     body{
         @apply mt-[8rem];
+        font-family: 'Roboto Slab', serif;
     }
 
 
@@ -31,6 +32,21 @@
     .container{
         @apply !w-3/4;
         @apply mx-auto;
+        @apply px-1.5;
+    }
+
+    #blackout{
+        @apply w-screen;
+        @apply h-screen;
+        @apply top-0;
+        @apply left-0;
+        @apply fixed;
+        @apply bg-gray-900;
+        @apply bg-opacity-60;
+        @apply z-[35];
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-out;
     }
 
 
@@ -74,30 +90,159 @@
     /* Navigation */
 
     nav#topNav{
+        @apply border-b;
+        @apply border-b-gray-200;
+        @apply bg-white;
         @apply fixed;
         @apply w-screen;
         @apply top-0;
-        @apply h-[8rem];
-        @apply px-10;
+        @apply z-40;
+        @apply p-6;
+    }
+
+    nav .site-logo, .menu-heading{
+        @apply text-3xl;
+        @apply font-black;
+        font-family: 'Roboto Slab', serif;
+        @apply capitalize;
+        @apply tracking-tighter;
+        @apply my-0;
+        @apply no-underline;
+    }
+
+    nav#topNav>.container>ul{
+        @apply w-full;
         @apply flex;
         @apply justify-between;
         @apply items-center;
-        @apply bg-slate-900;
-        @apply text-sky-50;
+        @apply text-3xl;
     }
 
-    nav#topNav>div>a{
-        @apply text-inherit;
+    nav#topNav a{
+        @apply text-gray-900;
+        @apply block;
+        @apply hover:text-gray-900;
+        @apply hover:-translate-y-1;
+        @apply transition-all;
+        @apply duration-150;
+        @apply ease-in;
+        @apply no-underline;
     }
 
-    nav#topNav>ul{
-        @apply items-center;
+
+    /* Slide Menu Styles */
+
+    #slideMenu{
+        @apply fixed;
+        @apply top-0;
+        @apply w-2/12;
+        @apply h-screen;
+        @apply border-r-0;
+        @apply border-r-gray-900;
+        @apply bg-gray-50;
+        @apply z-50;
+        @apply transition-all;
+        @apply duration-200;
+        @apply ease-in;
     }
 
-    nav#topNav>ul>li a{
-        @apply text-inherit;
-        @apply hover:text-red-500;
+    #slideMenu>.menu-heading{
+        @apply flex;
+        @apply justify-between;
+        @apply p-6;
+        @apply bg-gray-900;
+        @apply text-white;
     }
+
+    #slideMenu>ul{
+        @apply text-xl;
+        @apply text-black;
+        font-family: 'Roboto Slab', serif;
+        @apply tracking-tighter;
+        @apply text-2xl;
+        @apply font-bold;
+    }
+
+    #slideMenu>ul>li{
+        @apply border-b-0;
+        @apply border-yellow-500;
+        @apply hover:border-0;
+        @apply hover:bg-gray-900;
+        @apply hover:text-white;
+    }
+
+    #slideMenu>ul>li a{
+        @apply no-underline;
+        @apply text-gray-900;
+        @apply hover:text-white;
+        @apply hover:bg-gray-700;
+        @apply w-full;
+        @apply h-full;
+        @apply block;
+        @apply py-4;
+        @apply px-6;
+        @apply underline-offset-8;
+    }
+
+
+    /* Search slide */
+
+    #searchSlide{
+        @apply !z-[38];
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-out;
+        @apply bg-neutral-100;
+        @apply border-b;
+        @apply border-b-gray-400;
+        @apply w-screen;
+        @apply absolute;
+        @apply top-20;
+        @apply py-1;
+    }
+
+    #searchSlide form{
+        @apply w-3/4;
+        @apply mx-auto;
+        @apply py-1.5;
+    }
+
+    #searchSlide input{
+        @apply text-xl;
+        @apply font-light;
+        @apply outline-none;
+        @apply !bg-transparent;
+        @apply !mb-0;
+        @apply !border-0;
+        @apply !border-b-0;
+        @apply focus:ring-0;
+        @apply text-center;
+        @apply w-full;
+        @apply placeholder-gray-600;
+        @apply focus:!shadow-none;
+    }
+
+    /* Animation classes */
+
+    .animate-150-in{
+        @apply transition-all;
+        @apply duration-150;
+        @apply ease-in;
+    }
+
+    .animate-300-in{
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-in;
+    }
+
+    .animate-hover-rise{
+        @apply animate-150-in;
+        @apply hover:shadow-md;
+        @apply hover:-translate-y-1;
+    }
+
+
 
     
 
@@ -177,7 +322,6 @@
         @apply border-green-500;
         @apply hover:bg-green-500;
         @apply hover:border-green-600;
-        
     }
 
     .btn-success-sm{
