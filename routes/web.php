@@ -65,7 +65,7 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
 
 // UserController routes (guest only)
 Route::controller(UserController::class)->middleware('guest')->group(function () {
-    Route::get('/login', 'showLoginForm');
+    Route::get('/login', 'showLoginForm')->name('login');
     Route::get('/signup', 'showRegistrationForm');
     Route::post('/users/store', 'store');
     Route::post('/users/authenticate', 'authenticate');
