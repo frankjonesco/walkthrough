@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -19,7 +20,9 @@ class ArticleController extends Controller
 
     // Show form for creating an article
     public function create(){
-        return view('articles.create');
+        return view('articles.create', [
+            'categories' => Category::orderBy('name', 'ASC')->get()
+        ]);
     }
 
     // Store new article in database
@@ -33,6 +36,7 @@ class ArticleController extends Controller
         $article->create([
             'hex' => Str::random(11),
             'user_id' => auth()->user()->id,
+            'category_id' => $request->category_id,
             'title' => $request->title,
             'caption' => $request->caption,
             'body' => $request->body,
@@ -57,7 +61,8 @@ class ArticleController extends Controller
     // Show edit article form
     public function edit(Article $article){
         return view('articles.edit', [
-            'article' => $article
+            'article' => $article,
+            'categories' => Category::orderBy('name', 'ASC')->get()
         ]);
     }
 

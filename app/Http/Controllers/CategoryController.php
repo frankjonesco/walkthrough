@@ -113,7 +113,6 @@ class CategoryController extends Controller
         $category = Category::where('hex', $request->hex)->first();
         $category->delete();
         File::deleteDirectory(public_path('images/categories/'.$request->hex));
-
         return redirect('dashboard/categories')->with('success', 'The category was permanently deleted.');
     }
 

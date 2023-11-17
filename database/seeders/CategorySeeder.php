@@ -23,7 +23,7 @@ class CategorySeeder extends Seeder
                 'hex' => $item->hex,
                 'user_id' => $item->user_id,
                 'name' => $item->name,
-                'descrition' => $item->descrition,
+                'description' => $item->description,
                 'image' => $item->image,          
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at,

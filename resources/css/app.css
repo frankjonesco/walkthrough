@@ -60,15 +60,23 @@
 
     /* Cards */
 
-    .card-form-thin{
-        @apply w-1/3;
+    .card-form{
         @apply mx-auto;
-        @apply bg-gray-100;
         @apply p-10;
         @apply my-10;
         @apply border;
         @apply border-gray-200;
         @apply rounded;
+    }
+
+    .card-form-medium{
+        @apply card-form;
+        @apply w-2/3;
+    }
+
+    .card-form-thin{
+        @apply card-form;
+        @apply w-1/3;
     }
 
     .card-form-thin h1{
@@ -139,7 +147,7 @@
         @apply text-inherit;
     }
 
-
+F
 
     .article-card-sm>span.date{
         @apply font-light;

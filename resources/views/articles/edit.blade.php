@@ -36,6 +36,21 @@
                 @enderror
             </div>
 
+            {{-- Category ID --}}
+            <div class="form-element">
+                <label for="category_id">Category</label>
+                <select name="category_id" id="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}" {{old('category_id') ? 'selected' : null}}>{{$category->name}}</option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <p class="form-error">
+                        {{$message}}
+                    </p>
+                @enderror
+            </div>
+
             {{-- Status --}}
             <div class="form-element">
                 <label for="status">Status</label>

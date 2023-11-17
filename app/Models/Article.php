@@ -17,6 +17,7 @@ class Article extends Model
     protected $fillable = [
         'hex',
         'user_id',
+        'category_id',
         'title',
         'caption',
         'body',
@@ -41,6 +42,11 @@ class Article extends Model
     // Relationship to user
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    // Relationship to category
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 
 
