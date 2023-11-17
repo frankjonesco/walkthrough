@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -83,9 +84,30 @@ Route::controller(UserController::class)->middleware('guest')->group(function ()
 
 
 
+// CATEGORY CONTROLLER
+
+// CategoryController (auth only)
+Route::controller(CategoryController::class)->middleware('auth')->group(function () {
+    Route::get('/categories/create', 'create');
+    Route::post('/categories/store', 'store');
+    Route::get('/categories/{category}/edit', 'edit');
+    Route::post('/categories/{category}/update', 'update');
+    Route::get('/categories/{category}/image', 'editImage');
+    Route::post('/categories/{category}/image/upload', 'uploadImage');
+    Route::get('/categories/{category}/image/crop', 'cropImage');
+    Route::post('/categories/{category}/image/render', 'renderImage');
+    Route::get('/categories/{category}/confirm-delete', 'showConfirmDeleteForm');
+    Route::post('/categories/destroy', 'destroy');
+});
+
+
+
+
 // DASHBORD CONTROLLER
 
 // DashboardController (auth only)
 Route::controller(DashboardController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/articles', 'articlesIndex');
+    Route::get('/dashboard/categories', 'categoriesIndex');
     Route::get('/dashboard', 'index');
 });

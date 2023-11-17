@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -17,14 +17,11 @@ class Article extends Model
     protected $fillable = [
         'hex',
         'user_id',
-        'title',
-        'caption',
-        'body',
+        'name',
+        'description',
         'image',
-        'views',
         'status'
     ];
-
 
 
     // ROUTES
@@ -35,17 +32,6 @@ class Article extends Model
     }
 
 
-
-    // RELATIONAL MAPPING
-
-    // Relationship to user
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-
-
-
-    
     // HELPER FUNCTIONS
 
     // Get image
@@ -60,8 +46,8 @@ class Article extends Model
         if(!$this->image){
             return asset('images/no-image.webp');
         }
-        elseif(file_exists(public_path('images/articles/'.$this->hex.'/'.$image_name))){
-            return asset('images/articles/'.$this->hex.'/'.$image_name);
+        elseif(file_exists(public_path('images/categories/'.$this->hex.'/'.$image_name))){
+            return asset('images/categories/'.$this->hex.'/'.$image_name);
         }
         return asset('images/no-image.webp');
     }
@@ -69,16 +55,14 @@ class Article extends Model
     // Save image (update)
     public function saveImage($request){
         $image = new ImageProcess();
-        $this->image = $image->upload($request, 'articles', $this);
+        $this->image = $image->upload($request, 'categories', $this);
         return $this;
     }
 
     // Save rendered image (update)
     public function saveRenderedImage($data){
         $image = new ImageProcess();
-        $this->image = $image->renderCrop($data, 'articles', $this, 840, 472);
+        $this->image = $image->renderCrop($data, 'categories', $this, 840, 472);
         return $this;
     }
-
-
 }

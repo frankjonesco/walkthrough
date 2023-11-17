@@ -3,11 +3,11 @@
         <h1>Crop image</h1>
         <h2>Drag your mouse across the image to select the crop area and click Crop image.</h2>
         <div class="flex gap-12">
-            <div class="w-2/3">
-                <img id="image" src="{{$article->getImage()}}" alt="" style="height:500px;" class="w-1/3">
+            <div class="w-2/3 bg-yellow-500">
+                <img id="image" src="{{$category->getImage()}}" alt="" style="height:500px;" class="w-1/3">
             </div>
             <div class="w-1/3">
-                <form action="{{url('articles/'.$article->hex.'/image/render')}}" method="POST" class="flex justify-between">
+                <form action="{{url('categories/'.$category->hex.'/image/render')}}" method="POST" class="flex justify-between">
                     @csrf
                     <input type="hidden" name="x" id="imgX">
                     <input type="hidden" name="y" id="imgY">
@@ -22,7 +22,7 @@
                             </button>
                         </div>
                         <div class="w-full">
-                            <a href="/articles/{{$article->hex}}/image">
+                            <a href="/categories/{{$category->hex}}/image">
                                 <button type="button" class="btn btn-danger whitespace-nowrap !w-full">
                                     <i class="fa-solid fa-arrow-left mr-1.5"></i> 
                                     Change image

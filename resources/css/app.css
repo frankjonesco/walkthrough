@@ -107,12 +107,14 @@
     .article-card-sm{
         @apply flex;
         @apply flex-col;
+        @apply justify-between;
+        @apply pb-6;
         @apply border-b;
         @apply !border-gray-200;
-        @apply pb-6
+
     }
 
-    .article-card-sm>a>img{
+    .article-card-sm a>img{
         @apply mb-3;
         @apply shadow;
         @apply transition-all;
@@ -121,7 +123,7 @@
         @apply hover:-translate-y-1.5;
     }
 
-    .article-card-sm>a>span.title{
+    .article-card-sm a>span.title{
         @apply text-lg;
         @apply font-bold;
         @apply leading-5;
@@ -134,11 +136,10 @@
         @apply hover:bg-yellow-300;
         @apply hover:text-gray-900;
         @apply !text-gray-900;
-    }
-
-    .article-card-sm a{
         @apply text-inherit;
     }
+
+
 
     .article-card-sm>span.date{
         @apply font-light;

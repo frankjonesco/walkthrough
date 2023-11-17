@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('hex', 11);
             $table->foreignId('user_id');
+            $table->foreignId('category_id')->nullable();
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->longText('body')->nullable();
