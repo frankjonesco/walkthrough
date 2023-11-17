@@ -42,6 +42,11 @@
                 </a>
             </li>
             <li>
+                <a href="/profile">
+                    Profile
+                </a>
+            </li>
+            <li>
                 <form action="/logout" method="POST">
                     @csrf
                     <a href="#" onclick="this.parentNode.submit()">Logout</a>

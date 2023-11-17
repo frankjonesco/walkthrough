@@ -27,6 +27,14 @@
     }
 
 
+
+    /* Fonts */
+
+    .font-roboto {
+        font-family: Roboto,sans-serif;
+    }
+
+
     /* Containers */
 
     .container{
@@ -655,6 +663,21 @@
     }
 
 
+    /* Share icons */
+
+    a.share-link{
+        @apply border-[0.185rem];
+        @apply border-stone-200;
+        @apply rounded-full;
+        @apply w-11;
+        @apply aspect-square;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply no-underline;
+        @apply text-xl;
+        @apply text-black;
+    }
     
 
 }

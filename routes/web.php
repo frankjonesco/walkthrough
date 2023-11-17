@@ -60,6 +60,7 @@ Route::controller(ArticleController::class)->group(function () {
 
 // UserController routes (auth only)
 Route::controller(UserController::class)->middleware('auth')->group(function(){
+    Route::get('profile', 'showProfile');
     Route::post('/logout', 'logout');
 });
 

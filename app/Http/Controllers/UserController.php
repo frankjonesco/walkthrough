@@ -71,8 +71,11 @@ class UserController extends Controller
         return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
     }
 
-    // View Dashboard
-    public function viewDashboard(){
-        return view('users.dashboard');
+    // View profile
+    public function showProfile(){
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('users.profile', [
+            'user' => $user
+        ]);
     }
 }
