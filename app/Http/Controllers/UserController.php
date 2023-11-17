@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -96,7 +97,7 @@ class UserController extends Controller
             'email' => ['required', 'email', 'unique:users,email,' .auth()->user()->id]
         ]);
 
-        $user = User::where('id',auth()->user()->id)->first();
+        $user = User::where('id', auth()->user()->id)->first();
 
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -105,5 +106,34 @@ class UserController extends Controller
         $user->save();
 
         return redirect('profile')->with('message', 'Profile updated!');
+    }
+
+    // Edit password
+    public function editPassword(){
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('users.edit-password', [
+            'user' => $user
+        ]);
+    }
+
+    // Update password
+    public function updatePassword(Request $request){
+
+        $formFields = $request->validate([
+            'old_password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        if(Hash::check($request->old_password, auth()->user()->password) === false){
+            return back()->withErrors(["old_password" => "Incorrect password"]);
+        }
+
+        $user = User::where('id', auth()->user()->id)->first();
+
+        $user->password = bcrypt($request->password);
+
+        $user->save();
+
+        return redirect('profile')->with('message', 'Password updated!');
     }
 }

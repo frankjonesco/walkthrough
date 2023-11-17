@@ -9,7 +9,6 @@
                 <h2 class="font-bold mb-8">
                     {{$user->fullName()}}
                 </h2>
-
                 <div class="mb-5">
                     <span class="underline underline-offset-2">
                         {{$user->email}}
@@ -34,7 +33,7 @@
                 <a href="/profile/edit" class="btn-success-sm mt-8">
                     Edit profile
                 </a>
-                <a href="#" class="btn-default-sm mt-8">
+                <a href="profile/edit-password" class="btn-default-sm mt-8">
                     Change password
                 </a>
                 <a href="#" class="btn-primary-sm mt-8">

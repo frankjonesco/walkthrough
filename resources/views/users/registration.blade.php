@@ -59,7 +59,7 @@
                 
                 {{-- Password confirmation --}}
                 <div class="form-element">
-                    <label for="password">Confirm password</label>
+                    <label for="password_confirmation">Confirm password</label>
                     <input type="password" name="password_confirmation">
                 </div>
 
