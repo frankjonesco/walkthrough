@@ -73,6 +73,7 @@
 
     .card-form-thin h1{
         @apply py-0;
+        @apply my-auto;
         @apply text-3xl;
     }
 
@@ -80,6 +81,7 @@
         @apply text-base;
         @apply pt-5;
         @apply pb-10;
+        @apply my-0;
     }
 
     .card-form-thin button{

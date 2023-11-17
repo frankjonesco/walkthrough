@@ -78,4 +78,32 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    // Edit profile
+    public function editProfile(){
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('users.edit-profile', [
+            'user' => $user
+        ]);
+    }
+
+    // Update profile
+    public function updateProfile(Request $request){
+
+        $formFields = $request->validate([
+            'first_name' => 'required|min:2|max:20',
+            'last_name' => 'required|min:2|max:20',
+            'email' => ['required', 'email', 'unique:users,email,' .auth()->user()->id]
+        ]);
+
+        $user = User::where('id',auth()->user()->id)->first();
+
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+
+        $user->save();
+
+        return redirect('profile')->with('message', 'Profile updated!');
+    }
 }

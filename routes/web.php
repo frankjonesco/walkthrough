@@ -61,6 +61,8 @@ Route::controller(ArticleController::class)->group(function () {
 // UserController routes (auth only)
 Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::get('profile', 'showProfile');
+    Route::get('profile/edit', 'editProfile');
+    Route::post('profile/update', 'updateProfile');
     Route::post('/logout', 'logout');
 });
 

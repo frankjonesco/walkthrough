@@ -50,8 +50,25 @@ class User extends Authenticatable
     // HELPER FUNCTIONS
 
     // Get full name
-
     public function fullName(){
         return $this->first_name.' '.$this->last_name;
+    }
+
+    // Get image
+    public function getImage($size = 'full'){
+
+        if($size === 'full'){
+            $image_name = $this->image;
+        }else{
+            $image_name = 'tn-'.$this->image;
+        }
+
+        if(!$this->image){
+            return asset('images/default-profile-pic.webp');
+        }
+        elseif(file_exists(public_path('images/users/'.$this->hex.'/'.$image_name))){
+            return asset('images/users/'.$this->hex.'/'.$image_name);
+        }
+        return asset('images/default-profile-pic.webp');
     }
 }

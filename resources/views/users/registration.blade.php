@@ -63,7 +63,7 @@
                     <input type="password" name="password_confirmation">
                 </div>
 
-                <button type="submit" class="btn btn-green">Create an account</button>
+                <button type="submit" class="btn-success">Create an account</button>
 
                 <p>
                     Already have an account?
