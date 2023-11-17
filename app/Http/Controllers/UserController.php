@@ -118,22 +118,59 @@ class UserController extends Controller
 
     // Update password
     public function updatePassword(Request $request){
-
         $formFields = $request->validate([
             'old_password' => 'required|min:8',
             'password' => 'required|min:8|confirmed'
         ]);
-
         if(Hash::check($request->old_password, auth()->user()->password) === false){
             return back()->withErrors(["old_password" => "Incorrect password"]);
         }
+        $user = User::where('id', auth()->user()->id)->first();
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('profile')->with('message', 'Password updated!');
+    }
+
+    // Edit image
+    public function editImage(){
+        return view('users.edit-image');
+    }
+
+    // Upload image
+    public function uploadImage(Request $request){
+        $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100'
+        ]);
 
         $user = User::where('id', auth()->user()->id)->first();
 
-        $user->password = bcrypt($request->password);
+        if($request->hasFile('image')){
+            $user->saveImage($request);
+        }
+        
+        return redirect('profile/image/crop')->with('message', 'Your image was uploaded. Now let\'s crop it.');
+    }
 
-        $user->save();
+    // Crop Image
+    public function cropImage(){
+        return view('users.image-crop', [
+            'user' => User::where('id', auth()->user()->id)->first()
+        ]);
+    }
 
-        return redirect('profile')->with('message', 'Password updated!');
+    // Render image
+    public function renderImage(Request $request){
+        $data = $request->validate([
+            'x' => 'required',
+            'y' => 'required',
+            'w' => 'required',
+            'h' => 'required'
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+
+        $user->saveRenderedImage($data);
+
+        return redirect('profile')->with('message', 'Profile picture updated!');
     }
 }

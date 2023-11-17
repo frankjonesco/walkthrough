@@ -3,7 +3,7 @@
         <h1>Profile</h1>
         <div class="grid grid-cols-2 w-3/4 mx-auto mt-20">
             <div class="px-20">
-                <img src="{{$user->getImage()}}">
+                <img src="{{$user->getImage()}}" class="border-8 border-red-100 p-2 rounded-full">
             </div>
             <div class="text-center my-auto">
                 <h2 class="font-bold mb-8">
@@ -36,7 +36,7 @@
                 <a href="profile/edit-password" class="btn-default-sm mt-8">
                     Change password
                 </a>
-                <a href="#" class="btn-primary-sm mt-8">
+                <a href="/profile/image" class="btn-primary-sm mt-8">
                     Profile picture
                 </a>
             </div>

@@ -71,4 +71,18 @@ class User extends Authenticatable
         }
         return asset('images/default-profile-pic.webp');
     }
+
+    // Save image (update)
+    public function saveImage($request){
+        $image = new ImageProcess();
+        $this->image = $image->upload($request, 'users', $this);
+        return $this;
+    }
+
+    // Save rendered image (update)
+    public function saveRenderedImage($data){
+        $image = new ImageProcess();
+        $this->image = $image->renderCrop($data, 'users', $this, 568, 568);
+        return $this;
+    }
 }

@@ -53,7 +53,7 @@
 
                     {{-- Author --}}
                     <div class="border-b py-6 text-center">
-                        <img src="{{asset('images/default-profile-pic.jpeg')}}" class="w-1/6 pb-5 mx-auto">
+                        <img src="{{$article->user->getImage('tn')}}" class="w-24 mx-auto border-4 border-red-100 p-1 rounded-full mb-5">
                         <div class="text-sm">
                             <span class="font-light">By</span>
                             <span class="font-bold">

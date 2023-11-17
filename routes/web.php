@@ -65,6 +65,10 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::post('profile/update', 'updateProfile');
     Route::get('profile/edit-password', 'editPassword');
     Route::post('/profile/update-password', 'updatePassword');
+    Route::get('/profile/image', 'editImage');
+    Route::post('/profile/image/upload', 'uploadImage');
+    Route::get('/profile/image/crop', 'cropImage');
+    Route::post('/profile/image/render', 'renderImage');
     Route::post('/logout', 'logout');
 });
 
