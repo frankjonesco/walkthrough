@@ -1,5 +1,18 @@
 <x-layout>
     <x-container>
+        <div class="breadcrums mx-auto w-fit text-sm">
+            <span>
+                <a href="/articles" class="text-gray-900">
+                    News
+                </a>
+            </span>
+            <span>></span>
+            <span>
+                <a href="/categories/{{$article->category->hex}}" class="font-bold no-underline underline-offset-2">
+                    {{$article->category->name}}
+                </a>
+            </span>
+        </div>
         <h1>{{$article->title}}</h1>
         <h2>{{$article->caption}}</h2>
 

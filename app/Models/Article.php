@@ -47,7 +47,9 @@ class Article extends Model
 
     // Relationship to category
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault([
+            'name' => 'General',
+      ]);
     }
 
 
