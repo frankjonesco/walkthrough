@@ -20,7 +20,7 @@
 
             {{-- Left colun --}}
             <div class="w-2/3">
-                <img src="{{$article->getImage()}}">
+                <img src="{{$article->getImage()}}" class="w-full aspect-video">
                 <div class="border-t border-t-gray-200 mt-6 pt-3">{!!nl2p($article->body)!!}</div>
             </div>
 
