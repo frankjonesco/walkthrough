@@ -18,6 +18,28 @@ class ArticleController extends Controller
         ]);
     }
 
+    // List search results
+    public function searchResults(Request $request){
+        $articles = Article::where('title', 'LIKE', '% '.$request->search_term.' %')
+            ->orWhere('tags', 'LIKE', '% '.$request->search_term.' %')
+            ->latest()->paginate(12);
+
+        foreach($articles as $article){
+            $article->title = str_replace($request->search_term, '<span class="bg-yellow-200 py-0.5 px-1.5 inline-block">'.$request->search_term.'</span>', $article->title);
+            $article->title = str_replace(ucfirst($request->search_term), '<span class="bg-yellow-200 py-0.5 px-1.5 inline-block">'.ucfirst($request->search_term).'</span>', $article->title);
+            $article->title = str_replace(strtolower($request->search_term), '<span class="bg-yellow-200 py-0.5 px-1.5 inline-block">'.strtolower($request->search_term).'</span>', $article->title);
+            $article->title = str_replace(strtoupper($request->search_term), '<span class="bg-yellow-200 py-0.5 px-1.5 inline-block">'.strtoupper($request->search_term).'</span>', $article->title);
+
+            $article->tags = str_replace(strtolower($request->search_term), '<span class="font-bold">'.strtolower($request->search_term).'</span>', $article->tags);
+
+        }
+
+        return view('articles.index', [
+            'articles' => $articles,
+            'h2' => 'Showing results for search term <span class="font-bold">"'.$request->search_term.'"</span>'
+        ]);
+    }
+
     // Show form for creating an article
     public function create(){
         return view('articles.create', [

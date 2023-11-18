@@ -75,9 +75,9 @@
 {{-- Search slide --}}
 <div id="searchSlide" class="-translate-y-20">
     <x-container>
-        <form action="#" method="POST">
+        <form action="/search" method="POST">
             @csrf
-            <input type="text" name="search" id="searchField" placeholder="Search">
+            <input type="text" name="search_term" id="searchField" placeholder="Search">
         </form>
     </x-container>
 </div>

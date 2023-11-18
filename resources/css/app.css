@@ -616,6 +616,13 @@ F
         @apply mb-6;
     }
 
+    .text-highlight{
+        @apply bg-yellow-200;
+        @apply py-0.5;
+        @apply px-1.5;
+        @apply inline-block;
+    }
+
 
     /* Form elements */
 
@@ -756,7 +763,6 @@ F
         @apply border;
         @apply border-yellow-100;
         @apply shadow;
-        
         @apply rounded;
         @apply bg-gray-300;
         @apply text-white;
@@ -773,7 +779,6 @@ F
         @apply px-3;
         @apply block;
     }
-    
 
     .pagination>.page-item>a{
         @apply text-white;
