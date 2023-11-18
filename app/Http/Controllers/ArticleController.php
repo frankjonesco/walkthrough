@@ -77,6 +77,7 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->caption = $request->caption;
         $article->body = $request->body;
+        $article->category_id = $request->category_id;
         $article->status = $request->status;
 
         $article->save();

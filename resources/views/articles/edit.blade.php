@@ -40,6 +40,7 @@
             <div class="form-element">
                 <label for="category_id">Category</label>
                 <select name="category_id" id="category_id">
+                    <option value="{{null}}" selected>No category</option>
                     @foreach ($categories as $category)
                         <option value="{{$category->id}}" {{old('category_id') ? 'selected' : null}}>{{$category->name}}</option>
                     @endforeach
