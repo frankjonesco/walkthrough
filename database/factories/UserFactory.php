@@ -22,7 +22,6 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-
         $hex = Str::random(11);
         $directory = public_path('images/users/'.$hex);
         File::makeDirectory($directory, 0777, true, true);

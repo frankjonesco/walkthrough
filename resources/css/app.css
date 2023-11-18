@@ -743,6 +743,55 @@ F
     }
 
 
+    /* Pagination */
+    
+    .pagination{
+        @apply flex;
+        @apply gap-1.5;
+        @apply justify-center;
+        @apply my-12;
+    }
+
+    .pagination>.page-item{
+        @apply border;
+        @apply border-yellow-100;
+        @apply shadow;
+        
+        @apply rounded;
+        @apply bg-gray-300;
+        @apply text-white;
+        @apply hover:bg-gray-400;
+        @apply hover:border-yellow-100;
+        @apply hover:scale-110;
+        @apply transition-all;
+        @apply duration-150;
+        @apply ease-in-out;
+    }
+
+    .pagination .page-link{
+        @apply py-1;
+        @apply px-3;
+        @apply block;
+    }
+    
+
+    .pagination>.page-item>a{
+        @apply text-white;
+    }
+
+    .pagination>.page-item.active{
+        @apply bg-yellow-300;
+        @apply border-gray-300;
+        @apply scale-100;
+    }
+
+    .pagination>.page-item.disabled{
+        @apply bg-gray-200;
+        @apply border-gray-100;
+        @apply hover:scale-100;
+    }
+
+
     /* Share icons */
 
     a.share-link{

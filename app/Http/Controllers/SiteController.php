@@ -9,7 +9,7 @@ class SiteController extends Controller
 {
     // Show homepage
     public function showHome(){
-        $articles = Article::where('status', 'public')->latest()->get();
+        $articles = Article::where('status', 'public')->latest()->paginate(12);
         return view('home', [
             'articles' => $articles
         ]);

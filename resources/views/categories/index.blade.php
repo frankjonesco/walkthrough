@@ -22,5 +22,6 @@
                 </div>
             @endforeach
         </div>
+        {{$categories->links()}}
     </x-container>
 </x-layout>

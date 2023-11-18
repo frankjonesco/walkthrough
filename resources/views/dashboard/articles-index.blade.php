@@ -42,5 +42,7 @@
                 <x-alert class="alert-info" message="No articles to display." />
             @endif
         </div>
+
+        {{$articles->links()}}
     </x-container>
 </x-layout>

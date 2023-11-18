@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
     // List public articles
     public function index(){
-        $articles = Article::orderBy('id', 'DESC')->where('status', 'public')->get();
+        $articles = Article::orderBy('id', 'DESC')->where('status', 'public')->paginate(12);
         return view('articles.index', [
             'articles' => $articles
         ]);
@@ -61,7 +61,7 @@ class ArticleController extends Controller
 
     // List articles that have this tag
     public function showArticlesWithTag($tag = null){
-        $articles = Article::orderBy('id', 'DESC')->where('tags','LIKE','%'.$tag.'%')->where('status', 'public')->get();
+        $articles = Article::orderBy('id', 'DESC')->where('tags','LIKE','%'.$tag.'%')->where('status', 'public')->paginate(12);
         return view('articles.index', [
             'articles' => $articles,
             'h2' => 'Showing articles that have the <span class="font-bold">"'.$tag.'"</span> tag.'

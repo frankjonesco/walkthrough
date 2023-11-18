@@ -43,5 +43,7 @@
         @else
             <x-alert class="alert-info" message="No categories to display." />
         @endif
+
+        {{$categories->links()}}
     </x-container>
 </x-layout>
