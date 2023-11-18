@@ -33,6 +33,8 @@ class ArticleSeeder extends Seeder
         //         'body' => $item->body,
         //         'tags' => $item->tags,
         //         'image' => $item->image,
+        //         'image_caption' => $item->image_caption,
+        //         'image_copyright' => $item->image_copyright,
         //         'views' => $item->views,                
         //         'created_at' => $item->created_at,
         //         'updated_at' => $item->updated_at,

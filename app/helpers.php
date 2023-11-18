@@ -17,12 +17,7 @@ use Illuminate\Support\Str;
         }
     }
 
-    // Truncate
-    if(!function_exists('truncate')){
-        function truncate($str, $limit = 45) {
-            return Str::limit($str, $limit);
-        }
-    }
+
 
     // Show date and time
     if(!function_exists('showDateTime')){

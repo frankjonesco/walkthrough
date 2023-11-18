@@ -44,6 +44,7 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function 
     Route::post('/articles/{article}/image/upload', 'uploadImage');
     Route::get('/articles/{article}/image/crop', 'cropImage');
     Route::post('/articles/{article}/image/render', 'renderImage');
+    Route::post('/articles/{article}/image/save-details', 'updateImageMeta');
     Route::get('/articles/{article}/confirm-delete', 'showConfirmDeleteForm');
     Route::post('/articles/destroy', 'destroy');
 });

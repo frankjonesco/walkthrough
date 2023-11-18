@@ -21,6 +21,8 @@ return new class extends Migration
             $table->longText('body')->nullable();
             $table->string('tags')->nullable();
             $table->string('image')->nullable();
+            $table->string('image_caption')->nullable();
+            $table->string('image_copyright')->nullable();
             $table->integer('views')->nullable();
             $table->timestamps();
             $table->string('status');

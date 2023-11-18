@@ -159,6 +159,14 @@ class ArticleController extends Controller
         return redirect('dashboard')->with('message', 'Your image has been cropped.');
     }
 
+    // Update image meta
+    public function updateImageMeta(Article $article, Request $request){
+        $article->image_caption = $request->image_caption;
+        $article->image_copyright = $request->image_copyright;
+        $article->save();
+        return back()->with('message', 'Image information updated!');
+    }
+
     // Show confirm delete form
     public function showConfirmDeleteForm(Article $article){
         return view('articles.confirm-delete', [
