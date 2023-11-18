@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
-    //
+    // List public categories
+    public function index(){
+        $categories = Category::where('status', 'public')->orderBy('name', 'ASC')->get();
+        return view('categories.index', [
+            'categories' => $categories
+        ]);
+    }
 
     // Show create form
     public function create(){

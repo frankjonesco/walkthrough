@@ -16,5 +16,6 @@
                     <span class="date">{{showDateTime($article->created_at)}}</span>
                 </div>
             @endforeach
+        </div>
     </x-container>
 </x-layout>

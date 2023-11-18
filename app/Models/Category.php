@@ -32,6 +32,15 @@ class Category extends Model
     }
 
 
+
+    // RELATIONAL MAPPING
+
+    // Relationship to user
+    public function articles(){
+        return $this->hasMany(Article::class);
+    }
+
+
     // HELPER FUNCTIONS
 
     // Get image

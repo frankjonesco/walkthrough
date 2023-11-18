@@ -31,6 +31,11 @@
             </a>
         </li>
         <li>
+            <a href="/categories">
+                Categories
+            </a>
+        </li>
+        <li>
             <a href="/articles">
                 News articles
             </a>

@@ -169,6 +169,77 @@ F
 
 
 
+    .category-grid{
+        @apply grid;
+        @apply grid-cols-2;
+        @apply gap-3;
+        @apply border-t;
+        @apply border-gray-200;
+        @apply pt-5;
+        @apply w-3/4;
+        @apply mx-auto;
+    }
+
+    .category-card-sm{
+        @apply flex;
+        @apply flex-col;
+        @apply justify-between;
+        @apply pb-6;
+        @apply border-b;
+        @apply !border-gray-200;
+
+    }
+
+    .category-card-sm a>img{
+        @apply mb-3;
+        @apply w-full;
+        @apply shadow;
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-in-out;
+        @apply hover:-translate-y-1.5;
+    }
+
+    .category-card-sm a>span.title{
+        @apply text-lg;
+        @apply font-bold;
+        @apply leading-5;
+        @apply tracking-tight;
+        @apply mb-1;
+        @apply no-underline;
+        @apply px-0.5;
+        @apply py-0.5;
+        @apply block;
+        @apply hover:bg-yellow-300;
+        @apply hover:text-gray-900;
+        @apply !text-gray-900;
+        @apply text-inherit;
+    }
+
+F
+
+    .category-card-sm>span.article-count{
+        @apply font-light;
+        @apply text-sm;
+        @apply block;
+        @apply mb-2;
+        @apply mt-0.5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .category-card-sm>span.views{
+        @apply font-light;
+        @apply text-xs;
+        @apply block;
+        @apply mb-2;
+        @apply mt-0.5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    
+
+
+
 
     /* Navigation */
 

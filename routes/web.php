@@ -100,6 +100,11 @@ Route::controller(CategoryController::class)->middleware('auth')->group(function
     Route::post('/categories/destroy', 'destroy');
 });
 
+// CategoryController (all users)
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/categories', 'index');
+});
+
 
 
 
