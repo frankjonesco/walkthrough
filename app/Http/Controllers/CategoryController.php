@@ -17,6 +17,13 @@ class CategoryController extends Controller
         ]);
     }
 
+    // Show single category
+    public function show(Category $category){
+        return view('categories.show', [
+            'category' => $category
+        ]);
+    }
+
     // Show create form
     public function create(){
         return view('categories.create');

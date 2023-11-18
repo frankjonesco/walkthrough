@@ -73,6 +73,18 @@
                             {{showDateTime($article->created_at)}}
                         </span>
                     </div>
+
+                    {{-- Published date --}}
+                    <div class="text-center text-sm font-roboto">
+                        <span class="font-bold">
+                            Category
+                        </span>
+                        <span class="font-light">
+                            <a href="/categories/{{$article->category->hex}}">
+                                {{$article->category->name}}
+                            </a>
+                        </span>
+                    </div>
                 </div>
             </div> 
         </div>

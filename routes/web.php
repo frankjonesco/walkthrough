@@ -103,6 +103,7 @@ Route::controller(CategoryController::class)->middleware('auth')->group(function
 // CategoryController (all users)
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index');
+    Route::get('/categories/{category}', 'show');
 });
 
 
