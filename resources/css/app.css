@@ -115,7 +115,7 @@
     .article-card-sm{
         @apply flex;
         @apply flex-col;
-        @apply justify-between;
+        @apply justify-start;
         @apply pb-6;
         @apply border-b;
         @apply !border-gray-200;
@@ -215,8 +215,6 @@ F
         @apply !text-gray-900;
         @apply text-inherit;
     }
-
-F
 
     .category-card-sm>span.article-count{
         @apply font-light;

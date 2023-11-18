@@ -40,6 +40,7 @@ class ArticleController extends Controller
             'title' => $request->title,
             'caption' => $request->caption,
             'body' => $request->body,
+            'tags' => strtolower($request->tags),
             'status' => $request->status
         ]);
 
@@ -55,6 +56,15 @@ class ArticleController extends Controller
 
         return view('articles.show', [
             'article' => Article::where('id', $article->id)->where('status', 'public')->first()
+        ]);
+    }
+
+    // List articles that have this tag
+    public function showArticlesWithTag($tag = null){
+        $articles = Article::orderBy('id', 'DESC')->where('tags','LIKE','%'.$tag.'%')->where('status', 'public')->get();
+        return view('articles.index', [
+            'articles' => $articles,
+            'h2' => 'Showing articles that have the <span class="font-bold">"'.$tag.'"</span> tag.'
         ]);
     }
 
@@ -78,6 +88,7 @@ class ArticleController extends Controller
         $article->caption = $request->caption;
         $article->body = $request->body;
         $article->category_id = $request->category_id;
+        $article->tags = strtolower($request->tags);
         $article->status = $request->status;
 
         $article->save();

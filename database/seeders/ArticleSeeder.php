@@ -25,6 +25,7 @@ class ArticleSeeder extends Seeder
                 'title' => $item->title,
                 'caption' => $item->caption,
                 'body' => $item->body,
+                'tags' => $item->tags,
                 'image' => $item->image,
                 'views' => $item->views,                
                 'created_at' => $item->created_at,

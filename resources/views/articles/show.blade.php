@@ -74,8 +74,8 @@
                         </span>
                     </div>
 
-                    {{-- Published date --}}
-                    <div class="text-center text-sm font-roboto">
+                    {{-- Category label --}}
+                    <div class="pb-6 text-center text-sm font-roboto">
                         <span class="font-bold">
                             Category
                         </span>
@@ -83,6 +83,15 @@
                             <a href="/categories/{{$article->category->hex}}">
                                 {{$article->category->name}}
                             </a>
+                        </span>
+                    </div>
+
+                    {{-- Tags--}}
+                    <div class="text-center text-sm font-roboto">
+                        <span class="font-light">
+                            @foreach ($article->splitTags() as $tag)
+                                <a href="/tags/{{trim($tag)}}" class="px-2.5 py-1 bg-yellow-200 rounded-lg mr-1 text-gray-900 transition-all duration-150 ease-in-out hover:-translate-y-0.5 hover:bg-amber-200 inline-block">{{trim($tag)}}</a>
+                            @endforeach
                         </span>
                     </div>
                 </div>

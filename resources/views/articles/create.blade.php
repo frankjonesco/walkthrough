@@ -44,11 +44,23 @@
                 <div class="form-element">
                     <label for="category_id">Category</label>
                     <select name="category_id" id="category_id">
+                        <option value="{{null}}" selected>No category</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
                     @error('category_id')
+                        <p class="form-error">
+                            {{$message}}
+                        </p>
+                    @enderror
+                </div>
+
+                {{-- Tags --}}
+                <div class="form-element">
+                    <label for="tags">Tags</label>
+                    <input type="text" name="tags" placeholder="Meta tags">
+                    @error('tags')
                         <p class="form-error">
                             {{$message}}
                         </p>

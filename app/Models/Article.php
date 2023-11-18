@@ -21,6 +21,7 @@ class Article extends Model
         'title',
         'caption',
         'body',
+        'tags',
         'image',
         'views',
         'status'
@@ -84,6 +85,11 @@ class Article extends Model
         $image = new ImageProcess();
         $this->image = $image->renderCrop($data, 'articles', $this, 840, 472);
         return $this;
+    }
+
+    // Split tags
+    public function splitTags(){
+        return explode(',', $this->tags);
     }
 
 

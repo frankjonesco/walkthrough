@@ -52,6 +52,7 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function 
 Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles', 'index');
     Route::get('/articles/{article}', 'show');
+    Route::get('/tags/{tag}', 'showArticlesWithTag');
 });
 
 

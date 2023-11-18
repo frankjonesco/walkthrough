@@ -52,6 +52,17 @@
                 @enderror
             </div>
 
+            {{-- Tags --}}
+            <div class="form-element">
+                <label for="tags">Tags</label>
+                <input type="text" name="tags" placeholder="Meta tags">
+                @error('tags')
+                    <p class="form-error">
+                        {{$message}}
+                    </p>
+                @enderror
+            </div>
+
             {{-- Status --}}
             <div class="form-element">
                 <label for="status">Status</label>
