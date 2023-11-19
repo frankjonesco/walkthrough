@@ -16,11 +16,9 @@
 </head>
 <body>
     <x-navbar />
-    
     {{$slot}}
-    
+    <x-footer />
     {{-- Toast messages --}}
     <x-toast-message />
-
 </body>
 </html>

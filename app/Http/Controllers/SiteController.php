@@ -29,4 +29,14 @@ class SiteController extends Controller
     public function showContact(){
         return view('contact');
     }
+
+    // Show terms
+    public function showTerms(){
+        return view('terms');
+    }
+
+    // Show privacy
+    public function showPrivacy(){
+        return view('privacy');
+    }
 }

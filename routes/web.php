@@ -28,6 +28,9 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/about', 'showAbout');
     Route::get('/articles', 'showPosts');
     Route::get('/contact', 'showContact');
+    Route::get('/terms', 'showTerms');
+    Route::get('/privacy', 'showPrivacy');
+
 });
 
 

@@ -18,17 +18,17 @@
 
         <div class="flex border-t border-t-gray-200 pt-8 px-3">
 
-            {{-- Left colun --}}
+            {{-- Left column --}}
             <div class="w-2/3">
                 <img src="{{$article->getImage()}}" class="w-full aspect-video">
+
                 @if($article->image_caption || $article->image_copyright)
                     <div class="flex justify-between text-sm text-gray-400 mt-3">
                         <span>{{$article->image_caption}}</span>
                         <span>&copy; {{$article->image_copyright}}</span>
-                    </div>
-                @else
-                    
+                    </div>                    
                 @endif
+                
                 <div class="border-t border-t-gray-200 mt-6 pt-3">{!!nl2p($article->body)!!}</div>
             </div>
 
