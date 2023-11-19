@@ -4,6 +4,13 @@ use Illuminate\Support\Str;
 
     // FORMATTING FUNCTIONS
 
+    // Format employees
+    if(!function_exists('formatNumber')){
+        function formatNumber($number){
+            return number_format(round($number), 0, '.' , ',' );
+        }
+    }
+
     // Convert nl to <p>
     if(!function_exists('nl2p')){
         function nl2p($string){
@@ -16,8 +23,6 @@ use Illuminate\Support\Str;
             return $paragraphs;
         }
     }
-
-
 
     // Show date and time
     if(!function_exists('showDateTime')){

@@ -67,7 +67,7 @@
                     {{-- Views --}}
                     <div class="border-b text-center pt-6 pb-6">
                         <span class="font-bold">
-                            {{$article->views}}
+                            {{formatNumber($article->views)}}
                         </span>
                         <span class="font-light">Views</span>
                     </div>
