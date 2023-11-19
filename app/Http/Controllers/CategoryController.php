@@ -19,7 +19,11 @@ class CategoryController extends Controller
     }
 
     // Show single category
-    public function show(Category $category){
+    public function show(Category $category, $slug = null){
+        if($slug === null){
+            return redirect('categories/'.$category->hex.'/'.$category->slug);
+        }
+
         return view('categories.show', [
             'category' => $category,
             'articles' => Article::where('category_id', $category->id)->where('status', 'public')->latest()->paginate(12)

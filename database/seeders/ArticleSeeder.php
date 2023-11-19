@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +30,7 @@ class ArticleSeeder extends Seeder
                 'hex' => $item->hex,
                 'user_id' => $item->user_id,
                 'title' => $item->title,
+                'slug' => Str::slug($item->title),
                 'caption' => $item->caption,
                 'body' => $item->body,
                 'tags' => $item->tags,

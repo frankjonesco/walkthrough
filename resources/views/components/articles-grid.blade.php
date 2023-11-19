@@ -2,7 +2,7 @@
     <div class="articles-grid">
         @foreach ($articles as $article)
             <div class="article-card-sm">
-                <a href="/articles/{{$article->hex}}">
+                <a href="/articles/{{$article->hex}}/{{$article->slug}}">
                     <img src="{{$article->getImage('tn')}}">
                 </a>
                 <a href="/articles/{{$article->hex}}">

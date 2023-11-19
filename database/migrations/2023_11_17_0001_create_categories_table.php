@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('hex', 11);
             $table->foreignId('user_id');
             $table->string('name');
+            $table->string('slug');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

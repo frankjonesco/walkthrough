@@ -19,6 +19,7 @@ class Article extends Model
         'user_id',
         'category_id',
         'title',
+        'slug',
         'caption',
         'body',
         'tags',

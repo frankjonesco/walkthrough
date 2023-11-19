@@ -5,10 +5,10 @@
         <div class="category-grid">
             @foreach ($categories as $category)
                 <div class="category-card-sm">
-                    <a href="/categories/{{$category->hex}}">
+                    <a href="/categories/{{$category->hex}}/{{$category->slug}}">
                         <img src="{{$category->getImage('tn')}}">
                     </a>
-                    <a href="/categories/{{$category->hex}}">
+                    <a href="/categories/{{$category->hex}}/{{$category->slug}}">
                         <span class="title">
                             {{$category->name}}
                         </span>

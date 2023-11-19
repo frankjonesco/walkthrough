@@ -18,6 +18,7 @@ class Category extends Model
         'hex',
         'user_id',
         'name',
+        'slug',
         'description',
         'image',
         'status'

@@ -56,6 +56,7 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function 
 Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles', 'index');
     Route::post('/search', 'searchResults');
+    Route::get('/articles/{article}/{slug}', 'show');
     Route::get('/articles/{article}', 'show');
     Route::get('/tags/{tag}', 'showArticlesWithTag');
 });
@@ -109,6 +110,7 @@ Route::controller(CategoryController::class)->middleware('auth')->group(function
 // CategoryController (all users)
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index');
+    Route::get('/categories/{category}/{slug}', 'show');
     Route::get('/categories/{category}', 'show');
 });
 

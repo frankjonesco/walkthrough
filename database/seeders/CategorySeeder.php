@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +30,7 @@ class CategorySeeder extends Seeder
                 'hex' => $item->hex,
                 'user_id' => $item->user_id,
                 'name' => $item->name,
+                'slug' => $item->slug,
                 'description' => $item->description,
                 'image' => $item->image,          
                 'created_at' => $item->created_at,

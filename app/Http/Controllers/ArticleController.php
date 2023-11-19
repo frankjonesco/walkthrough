@@ -83,8 +83,11 @@ class ArticleController extends Controller
     }
 
     // Show a single public article
-    public function show(Article $article){
-
+    public function show(Article $article, $slug = null){
+        if($slug === null){
+            return redirect('articles/'.$article->hex.'/'.$article->slug);
+        }
+        
         $article->views = $article->views + 1;
         $article->save();
 
