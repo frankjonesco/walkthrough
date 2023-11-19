@@ -14,9 +14,11 @@
     @vite('resources/css/app.css')
 
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <x-navbar />
-    {{$slot}}
+    <main class="mt-[8rem]">
+        {{$slot}}
+    </main>
     <x-footer />
     {{-- Toast messages --}}
     <x-toast-message />

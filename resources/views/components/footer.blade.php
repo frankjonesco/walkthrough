@@ -1,4 +1,4 @@
-<section id="siteFooter" class="bg-black text-white">
+<footer class="bg-black text-white mt-auto">
     <x-container>
         <div class="flex justify-between items-center py-10">
             <div>
@@ -24,4 +24,4 @@
                 </li>
         </div>
     </x-container>
-</section>
+</footer>

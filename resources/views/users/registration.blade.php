@@ -41,7 +41,22 @@
                             {{$message}}
                         </p>
                     @enderror
-                    
+                </div>
+
+                {{-- Gender --}}
+                <div class="form-element">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender">
+                        <option disabled selected>Please select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    @error('gender')
+                        <p class="form-error">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
                 
                 {{-- Password --}}

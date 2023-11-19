@@ -22,20 +22,22 @@
                             </a>
                             <span class="date">{{showDateTime($article->created_at)}}</span>
                         </div>
-                        <div class="flex gap-1 pt-6">
-                            <a href="/articles/{{$article->hex}}/edit" class="btn-success-xs">
-                                <i class="fa fa-pencil"></i>
-                                Edit
-                            </a>
-                            <a href="/articles/{{$article->hex}}/image" class="btn-info-xs">
-                                <i class="fa fa-image"></i>
-                                Change image
-                            </a>
-                            <a href="/articles/{{$article->hex}}/confirm-delete" class="btn-danger-xs">
-                                <i class="fa fa-trash"></i>
-                                Delete
-                            </a>
-                        </div>
+                        @if(verifyPermissions($article))
+                            <div class="flex gap-1 pt-6">
+                                <a href="/articles/{{$article->hex}}/edit" class="btn-success-xs">
+                                    <i class="fa fa-pencil"></i>
+                                    Edit
+                                </a>
+                                <a href="/articles/{{$article->hex}}/image" class="btn-info-xs">
+                                    <i class="fa fa-image"></i>
+                                    Change image
+                                </a>
+                                <a href="/articles/{{$article->hex}}/confirm-delete" class="btn-danger-xs">
+                                    <i class="fa fa-trash"></i>
+                                    Delete
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             @else

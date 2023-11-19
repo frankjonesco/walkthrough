@@ -104,10 +104,15 @@ class ArticleController extends Controller
 
     // Show edit article form
     public function edit(Article $article){
+
+        verifyPermissions($article);
+        
         return view('articles.edit', [
             'article' => $article,
             'categories' => Category::orderBy('name', 'ASC')->get()
         ]);
+        
+       
     }
 
     // Update article

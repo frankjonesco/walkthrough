@@ -10,11 +10,39 @@ class DashboardController extends Controller
 {
     // Show dashboard index page
     public function index(){
-        return view('dashboard.index');
+        $buttons = [
+            [
+                'link' => '/dashboard/articles',
+                'label' => 'News',
+                'icon' => 'newspaper',
+                'color' => 'blue',
+                'required_user_type' => 2
+            ],
+            [
+                'link' => '/dashboard/categories',
+                'label' => 'Categories',
+                'icon' => 'folder',
+                'color' => 'pink',
+                'required_user_type' => 2
+            ],
+            [
+                'link' => '/profile',
+                'label' => 'Profile',
+                'icon' => 'user',
+                'color' => 'purple',
+                'required_user_type' => 1
+            ]
+        ];
+        return view('dashboard.index', [
+            'buttons' => $buttons
+        ]);
     }
 
     // Show articles index
     public function articlesIndex(){
+        if(verifyPermissions() === false){
+                return redirect('dashboard')->with('message', 'You don\'t have permission to view that page.');
+        }
         return view('dashboard.articles-index', [
             'articles' => Article::orderBy('created_at', 'DESC')->latest()->paginate(12)
         ]);
@@ -22,6 +50,9 @@ class DashboardController extends Controller
 
     // Show categories index
     public function categoriesIndex(){
+        if(verifyPermissions() === false){
+            return redirect('dashboard')->with('message', 'You don\'t have permission to view that page.');
+        }
         return view('dashboard.categories-index', [
             'categories' => Category::orderBy('created_at', 'DESC')->latest()->paginate(12)
         ]);

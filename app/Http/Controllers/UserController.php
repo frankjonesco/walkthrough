@@ -36,7 +36,10 @@ class UserController extends Controller
            'first_name' => trim($request->first_name),
            'last_name' => trim($request->last_name),
            'email' => trim($request->email),
-           'password' => bcrypt($request->password)
+           'password' => bcrypt($request->password),
+           'gender' => $request->gender,
+           'user_type_id' => 1,
+           'remember_token' => Str::random(10)
        ]);
 
         // Login

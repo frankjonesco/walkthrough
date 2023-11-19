@@ -14,30 +14,31 @@ class UserSeeder extends Seeder
     public function run(): void
     {      
         // IMPORT FROM FACTORY
-        File::cleanDirectory('public/images/users');
-        User::factory()->count(12)->create();
+        // File::cleanDirectory('public/images/users');
+        // User::factory()->count(12)->create();
 
         // IMPORT FROM DATATBASE
-        // $model = new User();
+        $model = new User();
         
-        // $items = $model::on('mysql_import')->get();
+        $items = $model::on('mysql_import')->get();
 
-        // foreach($items as $item){
-        //     $model::create([
-        //         'id' => $item->id,
-        //         'hex' => $item->hex,
-        //         'first_name' => $item->first_name,
-        //         'last_name' => $item->last_name,
-        //         'email' => $item->email,
-        //         'email_verified_at' => $item->email_verified_at,
-        //         'password' => $item->password,
-        //         'image' => $item->password,
-        //         'gender' => $item->gender,
-        //         'remember_token' => $item->remember_token,
-        //         'created_at' => $item->created_at,
-        //         'updated_at' => $item->updated_at,
-        //     ]);
-        // }
+        foreach($items as $item){
+            $model::create([
+                'id' => $item->id,
+                'hex' => $item->hex,
+                'first_name' => $item->first_name,
+                'last_name' => $item->last_name,
+                'email' => $item->email,
+                'email_verified_at' => $item->email_verified_at,
+                'password' => $item->password,
+                'user_type_id' => $item->user_type_id,
+                'image' => $item->password,
+                'gender' => $item->gender,
+                'remember_token' => $item->remember_token,
+                'created_at' => $item->created_at,
+                'updated_at' => $item->updated_at,
+            ]);
+        }
         
     }
 }

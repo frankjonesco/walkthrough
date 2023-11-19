@@ -22,20 +22,16 @@
     }
 
     body{
-        @apply mt-[8rem];
         font-family: 'Roboto Slab', serif;
     }
 
-    html, body {
-        height: 100%;
-      }
 
 
 
     /* Fonts */
 
     .font-roboto {
-        font-family: Roboto,sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
 
 

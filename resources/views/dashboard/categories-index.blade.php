@@ -24,18 +24,20 @@
                             <span class="date">{{showDateTime($category->created_at)}}</span>
                         </div>
                         <div class="flex gap-1 pt-6">
-                            <a href="/categories/{{$category->hex}}/edit" class="btn-success-xs">
-                                <i class="fa fa-pencil"></i>
-                                Edit
-                            </a>
-                            <a href="/categories/{{$category->hex}}/image" class="btn-info-xs">
-                                <i class="fa fa-image"></i>
-                                Change image
-                            </a>
-                            <a href="/categories/{{$category->hex}}/confirm-delete" class="btn-danger-xs">
-                                <i class="fa fa-trash"></i>
-                                Delete
-                            </a>
+                            @if(verifyPermissions($category))
+                                <a href="/categories/{{$category->hex}}/edit" class="btn-success-xs">
+                                    <i class="fa fa-pencil"></i>
+                                    Edit
+                                </a>
+                                <a href="/categories/{{$category->hex}}/image" class="btn-info-xs">
+                                    <i class="fa fa-image"></i>
+                                    Change image
+                                </a>
+                                <a href="/categories/{{$category->hex}}/confirm-delete" class="btn-danger-xs">
+                                    <i class="fa fa-trash"></i>
+                                    Delete
+                                </a>
+                            @endif
                         </div>
                     </div>
                 @endforeach
