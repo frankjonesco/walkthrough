@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->meta = [
+            'title' => 'POP'
+       ];
+    }
+
     // Show dashboard index page
     public function index(){
         $buttons = [

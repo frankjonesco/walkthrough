@@ -9,13 +9,13 @@
     @if(!isset($meta))
         @php
             $meta = [
-                'title' => config('app.name').' | Gripping news | A jar of humour',
-                'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-                'keywords' => 'news, news articles',
+                'title' => config('meta.title'),
+                'description' => config('meta.description'),
+                'keywords' => config('meta.keyword'),
             ];
         @endphp
     @endif
-    
+
     <title>{{$meta['title']}}</title>
     <meta name="description" content="{{$meta['description']}}" />
     <meta name="keywords" content="{{$meta['keywords']}}" />

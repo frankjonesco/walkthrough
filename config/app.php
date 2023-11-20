@@ -18,6 +18,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'meta' => [
+        'title' => 'FriedEgg'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -41,6 +45,7 @@ return [
     | application. If disabled, a simple generic error page is shown.
     |
     */
+    
 
     'debug' => (bool) env('APP_DEBUG', false),
 
