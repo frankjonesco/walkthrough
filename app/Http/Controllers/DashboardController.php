@@ -39,7 +39,14 @@ class DashboardController extends Controller
                 'icon' => 'user',
                 'color' => 'purple',
                 'required_user_type' => 1
-            ]
+            ],
+            [
+                'link' => '/dashboard/sandbox',
+                'label' => 'Sandbox',
+                'icon' => 'image',
+                'color' => 'red',
+                'required_user_type' => 4
+            ],
         ];
         return view('dashboard.index', [
             'buttons' => $buttons
@@ -64,5 +71,13 @@ class DashboardController extends Controller
         return view('dashboard.categories-index', [
             'categories' => Category::orderBy('created_at', 'DESC')->latest()->paginate(12)
         ]);
+    }
+
+    // Show sandbox
+    public function showSandbox(){
+        if(verifyPermissions() === false){
+            return redirect('dashboard')->with('message', 'You don\'t have permission to view that page.');
+        }
+        return view('dashboard.sandbox');
     }
 }

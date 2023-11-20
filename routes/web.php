@@ -121,6 +121,7 @@ Route::controller(CategoryController::class)->group(function () {
 
 // DashboardController (auth only)
 Route::controller(DashboardController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/sandbox', 'showSandbox');
     Route::get('/dashboard/articles', 'articlesIndex');
     Route::get('/dashboard/categories', 'categoriesIndex');
     Route::get('/dashboard', 'index');
