@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :meta="$meta">
     <x-container>
         <h1>News articles</h1>
         @if(isset($h2))

@@ -13,8 +13,14 @@ class ArticleController extends Controller
     // List public articles
     public function index(){
         $articles = Article::orderBy('id', 'DESC')->where('status', 'public')->paginate(12);
+        $meta = [
+            'title' => config('app.name').' | Latest news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
         return view('articles.index', [
-            'articles' => $articles
+            'articles' => $articles,
+            'meta' => $meta
         ]);
     }
 
@@ -46,9 +52,16 @@ class ArticleController extends Controller
             $article->tags = str_replace(strtolower($request->search_term), '<span class="font-bold">'.strtolower($request->search_term).'</span>', $article->tags);
         }
 
+        $meta = [
+            'title' => 'Search results | '.config('app.name').' | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
+
         return view('articles.index', [
             'articles' => $articles,
-            'h2' => 'Showing results for search term <span class="font-bold">"'.$request->search_term.'"</span>'
+            'h2' => 'Showing results for search term <span class="font-bold">"'.$request->search_term.'"</span>',
+            'meta' => $meta
         ]);
     }
 
@@ -72,6 +85,7 @@ class ArticleController extends Controller
             'user_id' => auth()->user()->id,
             'category_id' => $request->category_id,
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'caption' => $request->caption,
             'body' => $request->body,
             'tags' => strtolower($request->tags),
@@ -87,12 +101,17 @@ class ArticleController extends Controller
         if($slug === null){
             return redirect('articles/'.$article->hex.'/'.$article->slug);
         }
-        
         $article->views = $article->views + 1;
         $article->save();
 
+        $meta = [
+            'title' => $article->title.' | '.config('app.name'),
+            'description' => $article->caption,
+            'keywords' => $article->tags,
+        ];
         return view('articles.show', [
-            'article' => Article::where('id', $article->id)->where('status', 'public')->first()
+            'article' => Article::where('id', $article->id)->where('status', 'public')->first(),
+            'meta' => $meta
         ]);
     }
 
@@ -127,6 +146,7 @@ class ArticleController extends Controller
         ]);
 
         $article->title = $request->title;
+        $article->slug = Str::slug($request->title);
         $article->caption = $request->caption;
         $article->body = $request->body;
         $article->category_id = $request->category_id;

@@ -13,8 +13,14 @@ class CategoryController extends Controller
     // List public categories
     public function index(){
         $categories = Category::where('status', 'public')->orderBy('name', 'ASC')->paginate(6);
+        $meta = [
+            'title' => config('app.name').' | News Categories | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
         return view('categories.index', [
-            'categories' => $categories
+            'categories' => $categories,
+            'meta' => $meta
         ]);
     }
 
@@ -24,9 +30,15 @@ class CategoryController extends Controller
             return redirect('categories/'.$category->hex.'/'.$category->slug);
         }
 
+        $meta = [
+            'title' => $category->name.' | News category | '.config('app.name'),
+            'description' => $category->description,
+            'keywords' => 'news, news articles',
+        ];
         return view('categories.show', [
             'category' => $category,
-            'articles' => Article::where('category_id', $category->id)->where('status', 'public')->latest()->paginate(12)
+            'articles' => Article::where('category_id', $category->id)->where('status', 'public')->latest()->paginate(12),
+            'meta' => $meta
         ]);
     }
 

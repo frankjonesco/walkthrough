@@ -10,8 +10,14 @@ class SiteController extends Controller
     // Show homepage
     public function showHome(){
         $articles = Article::where('status', 'public')->latest()->paginate(12);
+        $meta = [
+            'title' => config('app.name').' | Gripping news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
         return view('home', [
-            'articles' => $articles
+            'articles' => $articles,
+            'meta' => $meta,
         ]);
     }
 
@@ -32,11 +38,25 @@ class SiteController extends Controller
 
     // Show terms
     public function showTerms(){
-        return view('terms');
+        $meta = [
+            'title' => 'Terms & conditions | '.config('app.name').' | Gripping news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
+        return view('terms', [
+            'meta' => $meta
+        ]);
     }
 
     // Show privacy
     public function showPrivacy(){
-        return view('privacy');
+        $meta = [
+            'title' => 'Privacy policy | '.config('app.name').' | Gripping news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
+        return view('privacy', [
+            'meta' => $meta
+        ]);
     }
 }

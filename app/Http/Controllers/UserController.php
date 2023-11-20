@@ -12,12 +12,26 @@ class UserController extends Controller
 {
     // Show login form
     public function showLoginForm(){
-        return view('users.login');
+        $meta = [
+            'title' => 'Login | '.config('app.name').' | Gripping news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
+        return view('users.login', [
+            'meta' => $meta
+        ]);
     }
 
     // Show registration form
     public function showRegistrationForm(){
-        return view('users.registration');
+        $meta = [
+            'title' => 'Registration | '.config('app.name').' | Gripping news | A jar of humour',
+            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
+            'keywords' => 'news, news articles',
+        ];
+        return view('users.registration', [
+            'meta' => $meta
+        ]);
     }
 
     // Store new user

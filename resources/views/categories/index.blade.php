@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :meta="$meta">
     <x-container>
         <h1>Categories</h1>
         <h2>Browse our news articles by category.</h2>

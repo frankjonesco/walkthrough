@@ -30,7 +30,7 @@ class ArticleSeeder extends Seeder
                 'hex' => $item->hex,
                 'user_id' => $item->user_id,
                 'title' => $item->title,
-                'slug' => Str::slug($item->title),
+                'slug' => $item->slug,
                 'caption' => $item->caption,
                 'body' => $item->body,
                 'tags' => $item->tags,

@@ -5,7 +5,7 @@
                 <a href="/articles/{{$article->hex}}/{{$article->slug}}">
                     <img src="{{$article->getImage('tn')}}">
                 </a>
-                <a href="/articles/{{$article->hex}}">
+                <a href="/articles/{{$article->hex}}/{{$article->slug}}">
                     <span class="title">
                         {!!$article->title!!}
                     </span>
