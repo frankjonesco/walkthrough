@@ -26,6 +26,8 @@ class Article extends Model
         'image',
         'image_caption',
         'image_copyright',
+        'image_caption',
+        'image_copyright',
         'image_copyright_link',
         'views',
         'status'
@@ -96,6 +98,53 @@ class Article extends Model
     // Split tags
     public function splitTags(){
         return explode(',', $this->tags);
+    }
+
+
+    // Highlight search term
+    public static function highlightSearchTerm(string $search_term = null, Article $article = null){
+        $case_variants = [
+            $search_term,
+            strtolower($search_term),
+            strtoupper($search_term),
+            ucfirst($search_term),
+        ];
+        foreach($case_variants as $case_variant){
+            $highlighted_text = '<span class="bg-yellow-200 py-0.5 px-1.5 inline-block">'.$case_variant.'</span>';
+            $article->title = str_replace($case_variant, $highlighted_text, $article->title);
+            $article->tags = str_replace(strtolower($search_term), '<span class="font-bold">'.strtolower($search_term).'</span>', $article->tags);
+        }
+        return $article;
+    }
+
+
+
+
+
+
+
+    public function fetch(string $status = 'any'){
+        if($status === 'public')
+            return Article::where('id', $this->id)->where('status', 'public')->first();
+        if($status === 'private')
+            return Article::where('id', $this->id)->where('status', 'private')->first();
+        if($status === 'any')
+            return Article::where('id', $this->id)->first();
+        return false;
+    }
+
+
+    public function addView(){
+        $this->views = $this->views + 1;
+        $this->save();
+    }
+
+    public function metadata(){
+        return [
+            'title' => $this->title.' | '.config('app.name'),
+            'description' => $this->caption,
+            'keywords' => $this->tags
+        ];
     }
 
 

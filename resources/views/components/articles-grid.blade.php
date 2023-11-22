@@ -24,7 +24,9 @@
         @endforeach
     </div>
 
-    {{$articles->links()}}
+    
+
+    {{paginationLinks($articles)}}
 @else
     <x-alert class="alert-warning" message="There are no articles to display." />
 @endif

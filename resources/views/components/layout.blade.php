@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    
     {{-- Metadata --}}
     @if(!isset($meta))
         @php
             $meta = [
-                'title' => config('meta.title'),
-                'description' => config('meta.description'),
-                'keywords' => config('meta.keyword'),
+                'title' => config('app.meta.title'),
+                'description' => config('app.meta.description'),
+                'keywords' => config('app.meta.keywords')
             ];
         @endphp
     @endif
 
     <title>{{$meta['title']}}</title>
-    <meta name="description" content="{{$meta['description']}}" />
-    <meta name="keywords" content="{{$meta['keywords']}}" />
+    <meta name="description" content="{{$meta['title']}}" />
+    <meta name="keywords" content="{{$meta['title']}}" />
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

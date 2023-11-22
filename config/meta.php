@@ -17,8 +17,11 @@ return [
     |
     */
 
+    
     'title' => config('app.name').' | Gripping news | A jar of humour',
     'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
     'keywords' => 'news, news articles',
+
+    
 
 ];

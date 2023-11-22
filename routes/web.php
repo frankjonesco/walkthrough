@@ -25,19 +25,68 @@ use App\Http\Controllers\DashboardController;
 // SiteController routes
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'showHome');
-    Route::get('/about', 'showAbout');
     Route::get('/articles', 'showPosts');
     Route::get('/contact', 'showContact');
     Route::get('/terms', 'showTerms');
     Route::get('/privacy', 'showPrivacy');
+});
 
+
+
+// USER CONTROLLER
+
+// UserController routes (auth only)
+Route::controller(UserController::class)->middleware('auth')->group(function(){
+    Route::get('profile', 'showProfile');
+    Route::get('profile/edit', 'editProfile');
+    Route::post('profile/update', 'updateProfile');
+    Route::get('profile/edit-password', 'editPassword');
+    Route::post('/profile/update-password', 'updatePassword');
+    Route::get('/profile/image', 'editImage');
+    Route::post('/profile/image/upload', 'uploadImage');
+    Route::get('/profile/image/crop', 'cropImage');
+    Route::post('/profile/image/render', 'renderImage');
+    Route::post('/logout', 'logout');
+});
+
+// UserController routes (guest users)
+Route::controller(UserController::class)->middleware('guest')->group(function () {
+    Route::get('/login', 'showLoginForm')->name('login');
+    Route::get('/signup', 'showRegistrationForm');
+    Route::post('/users/store', 'store');
+    Route::post('/users/authenticate', 'authenticate');
+});
+
+
+
+// CATEGORY CONTROLLER
+
+// CategoryController (auth users)
+Route::controller(CategoryController::class)->middleware('auth')->group(function () {
+    Route::get('/categories/create', 'create');
+    Route::post('/categories/store', 'store');
+    Route::get('/categories/{category}/edit', 'edit');
+    Route::post('/categories/{category}/update', 'update');
+    Route::get('/categories/{category}/image', 'editImage');
+    Route::post('/categories/{category}/image/upload', 'uploadImage');
+    Route::get('/categories/{category}/image/crop', 'cropImage');
+    Route::post('/categories/{category}/image/render', 'renderImage');
+    Route::get('/categories/{category}/confirm-delete', 'showConfirmDeleteForm');
+    Route::post('/categories/destroy', 'destroy');
+});
+
+// CategoryController (all users)
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/categories', 'index');
+    Route::get('/categories/{category}/{slug}', 'show');
+    Route::get('/categories/{category}', 'show');
 });
 
 
 
 // ARTICLES CONTROLLER
 
-// ArticleController routes (auth only)
+// ArticleController routes (auth users)
 Route::controller(ArticleController::class)->middleware('auth')->group(function () {
     Route::get('/articles/create', 'create');
     Route::post('/articles/store', 'store');
@@ -63,63 +112,9 @@ Route::controller(ArticleController::class)->group(function () {
 
 
 
-
-// USER CONTROLLER
-
-// UserController routes (auth only)
-Route::controller(UserController::class)->middleware('auth')->group(function(){
-    Route::get('profile', 'showProfile');
-    Route::get('profile/edit', 'editProfile');
-    Route::post('profile/update', 'updateProfile');
-    Route::get('profile/edit-password', 'editPassword');
-    Route::post('/profile/update-password', 'updatePassword');
-    Route::get('/profile/image', 'editImage');
-    Route::post('/profile/image/upload', 'uploadImage');
-    Route::get('/profile/image/crop', 'cropImage');
-    Route::post('/profile/image/render', 'renderImage');
-    Route::post('/logout', 'logout');
-});
-
-// UserController routes (guest only)
-Route::controller(UserController::class)->middleware('guest')->group(function () {
-    Route::get('/login', 'showLoginForm')->name('login');
-    Route::get('/signup', 'showRegistrationForm');
-    Route::post('/users/store', 'store');
-    Route::post('/users/authenticate', 'authenticate');
-});
-
-
-
-
-// CATEGORY CONTROLLER
-
-// CategoryController (auth only)
-Route::controller(CategoryController::class)->middleware('auth')->group(function () {
-    Route::get('/categories/create', 'create');
-    Route::post('/categories/store', 'store');
-    Route::get('/categories/{category}/edit', 'edit');
-    Route::post('/categories/{category}/update', 'update');
-    Route::get('/categories/{category}/image', 'editImage');
-    Route::post('/categories/{category}/image/upload', 'uploadImage');
-    Route::get('/categories/{category}/image/crop', 'cropImage');
-    Route::post('/categories/{category}/image/render', 'renderImage');
-    Route::get('/categories/{category}/confirm-delete', 'showConfirmDeleteForm');
-    Route::post('/categories/destroy', 'destroy');
-});
-
-// CategoryController (all users)
-Route::controller(CategoryController::class)->group(function () {
-    Route::get('/categories', 'index');
-    Route::get('/categories/{category}/{slug}', 'show');
-    Route::get('/categories/{category}', 'show');
-});
-
-
-
-
 // DASHBORD CONTROLLER
 
-// DashboardController (auth only)
+// DashboardController (auth users)
 Route::controller(DashboardController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/sandbox/{elements}', 'showSandboxElements');
     Route::get('/dashboard/sandbox', 'showSandbox');

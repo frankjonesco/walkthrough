@@ -19,7 +19,9 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     'meta' => [
-        'title' => 'FriedEgg'
+        'title' => 'Walkthough',
+        'description' => 'PIG',
+        'keywords' => 'PIG',
     ],
 
     /*

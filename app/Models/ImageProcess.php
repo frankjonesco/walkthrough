@@ -13,13 +13,13 @@ class ImageProcess extends Model
     use HasFactory;
 
     // Upload image
-    public function upload($request, $target, $item){
+    public function upload($request, $item, $target, $image){
         $image_name = Str::random('6').'-'.time().'.webp';
-        $directory_path = public_path('images/'.$target.'/'.$item->hex);
+        $directory_path = public_path('images/'.$target.'/'.$image->hex);
         $request->file('image')->move($directory_path, $image_name);
         self::encode($directory_path, $image_name);
         // self::deleteOtherFiles($directory_path, $image_name);
-        self::saveToDatabase($item, $image_name);
+        self::saveToDatabase($image, $image_name, $item, $target);
         // self::batchSizes(Image::make($directory_path.'/'.$image_name), 480, $directory_path, $image_name);
         return true;
     }
@@ -43,7 +43,7 @@ class ImageProcess extends Model
     }
 
     // Save to database
-    public function saveToDatabase($item, $image_name){
+    public function saveToDatabase($image, $image_name, $item, $target){
         $item->image = $image_name;
         $item->save();
         return true;

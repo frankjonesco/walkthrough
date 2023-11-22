@@ -110,4 +110,21 @@ use Illuminate\Support\Str;
             // Die
             return false;
         }
+
+
+
+
+        if(!function_exists('randomHex')){
+            function randomHex(){
+                return Str::random(11);
+            }
+        }
+
+        if(!function_exists('pagniationLinks')){
+            function paginationLinks($results){
+                if($results instanceof \Illuminate\Pagination\AbstractPaginator)
+                    return $results->links();
+                return false;
+            }
+        }
     }
