@@ -77,6 +77,10 @@ use Illuminate\Support\Str;
     // Check if logged in user car edit an article
     if(!function_exists('verifyPermissions')){
         function verifyPermissions($item = null, $user = null){
+
+            if(!auth()->user()){
+                return false;
+            }
             // Set user to logged in user if not specified
             if($user === null){
                 $user = auth()->user();

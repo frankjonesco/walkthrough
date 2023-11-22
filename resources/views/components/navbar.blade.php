@@ -13,18 +13,23 @@
                 </a>
             </li>
             <li class="w-1/4 justify-end flex gap-6">
-                <a href="/articles/create" class="!text-green-400">
-                    <i class="fa-solid fa-circle-plus"></i>
-                </a>
-                <a href="/categories/create" class="!text-blue-400">
-                    <i class="fa-solid fa-folder-plus"></i>
-                </a>
-                <a href="/profile" class="!text-purple-400">
-                    <i class="fa-solid fa-user-circle"></i>
-                </a>
-                <a href="/dashboard" class="!text-red-400 text-md">
-                    <i class="fa-solid fa-dashboard"></i>
-                </a>
+                @if(verifyPermissions())
+                    @auth
+                        <a href="/articles/create" class="!text-green-400">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </a>
+                        <a href="/categories/create" class="!text-blue-400">
+                            <i class="fa-solid fa-folder-plus"></i>
+                        </a>
+                        <a href="/profile" class="!text-purple-400">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </a>
+                        <a href="/dashboard" class="!text-red-400 text-md">
+                            <i class="fa-solid fa-dashboard"></i>
+                        </a>
+                        
+                    @endauth
+                @endif
                 <a href="#" id="toggleSearchIcon">
                     <i class="fa-solid fa-search"></i>
                 </a>
