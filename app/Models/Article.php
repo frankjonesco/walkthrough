@@ -24,6 +24,9 @@ class Article extends Model
         'body',
         'tags',
         'image',
+        'image_caption',
+        'image_copyright',
+        'image_copyright_link',
         'views',
         'status'
     ];

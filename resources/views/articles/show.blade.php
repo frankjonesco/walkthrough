@@ -25,7 +25,11 @@
                 @if($article->image_caption || $article->image_copyright)
                     <div class="flex justify-between text-sm text-gray-400 mt-3">
                         <span>{{$article->image_caption}}</span>
-                        <span>&copy; {{$article->image_copyright}}</span>
+                        @if($article->image_copyright && $article->image_copyright_link)
+                            <span>&copy; <a href="{{$article->image_copyright_link}}" target="_blank" class="text-inherit">{{$article->image_copyright}}</a></span>
+                        @elseif($article->image_copyright)
+                            <span>&copy; {{$article->image_copyright}}</span>
+                        @endif
                     </div>                    
                 @endif
                 

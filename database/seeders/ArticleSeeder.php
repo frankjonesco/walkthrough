@@ -39,6 +39,7 @@ class ArticleSeeder extends Seeder
                 'image' => $item->image,
                 'image_caption' => $item->image_caption,
                 'image_copyright' => $item->image_copyright,
+                'image_copyright_link' => $item->image_copyright_link,
                 'views' => $item->views,                
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at,

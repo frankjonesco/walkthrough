@@ -203,6 +203,7 @@ class ArticleController extends Controller
     public function updateImageMeta(Article $article, Request $request){
         $article->image_caption = $request->image_caption;
         $article->image_copyright = $request->image_copyright;
+        $article->image_copyright_link = $request->image_copyright_link;
         $article->save();
         return back()->with('message', 'Image information updated!');
     }
