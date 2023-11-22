@@ -2,17 +2,29 @@
 <nav id="topNav">
     <x-container>
         <ul>
-            <li>
+            <li class="w-1/4">
                 <a href="#" id="openMenuIcon">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </li>
-            <li>
+            <li class="w-1/2 text-center font-bold">
                 <a href="/" class="site-logo">
                     {{config('app.name')}}
                 </a>
             </li>
-            <li>
+            <li class="w-1/4 justify-end flex gap-6">
+                <a href="/articles/create" class="!text-green-400">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </a>
+                <a href="/categories/create" class="!text-blue-400">
+                    <i class="fa-solid fa-folder-plus"></i>
+                </a>
+                <a href="/profile" class="!text-purple-400">
+                    <i class="fa-solid fa-user-circle"></i>
+                </a>
+                <a href="/dashboard" class="!text-red-400 text-md">
+                    <i class="fa-solid fa-dashboard"></i>
+                </a>
                 <a href="#" id="toggleSearchIcon">
                     <i class="fa-solid fa-search"></i>
                 </a>

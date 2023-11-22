@@ -1,8 +1,8 @@
 <x-layout>
     <x-container>
-        <x-card-form-thin>
-            <h1>Edit category</h1>
-            <h2>Update the information for this category.</h2>
+        <h1>Edit category</h1>
+        <h2>Update the information for this category.</h2>
+        <x-card-form-medium>
             <form action="/categories/{{$category->hex}}/update" method="POST">
                 @csrf
                 {{-- Name --}}
@@ -46,6 +46,6 @@
                     <a href="{{ url()->previous() }}" class="btn-danger">Cancel</a>
                 </div>
             </form>
-        </x-card-form-thin>
+        </x-card-form-medium>
     </x-container>
 </x-layout>

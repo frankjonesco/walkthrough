@@ -9,13 +9,6 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
 
-    public function __construct()
-    {
-       $this->meta = [
-            'title' => 'POP'
-       ];
-    }
-
     // Show dashboard index page
     public function index(){
         $buttons = [
@@ -48,6 +41,8 @@ class DashboardController extends Controller
                 'required_user_type' => 4
             ],
         ];
+
+        
         return view('dashboard.index', [
             'buttons' => $buttons
         ]);
