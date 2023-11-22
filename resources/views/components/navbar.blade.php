@@ -52,6 +52,11 @@
                 News articles
             </a>
         </li>
+        <li>
+            <a href="/contact">
+                Contact
+            </a>
+        </li>
         @auth
             <li>
                 <a href="/dashboard">
