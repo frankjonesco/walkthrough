@@ -1,3 +1,58 @@
+<x-layout :meta="$meta">
+    <x-container>
+        <h1>Categories</h1>
+        <h2>Browse our news articles by category.</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hex</th>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Image</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($categories as $category)
+                    <tr>
+                        <td>{{$category->hex}}</td>
+                        <td>{{$category->title}}</td>
+                        <td>{{$category->slug}}</td>
+                        <td>{{$category->image}}</td>
+                        <td>{{$category->created}}</td>
+                        <td>{{$category->updated}}</td>
+                        <td>{{$category->status}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        {{-- <div class="category-grid">
+            @foreach ($categories as $category)
+                <div class="category-card-sm">
+                    <a href="/categories/{{$category->hex}}/{{$category->slug}}">
+                        <img src="{{$category->getImage('tn')}}">
+                    </a>
+                    <a href="/categories/{{$category->hex}}/{{$category->slug}}">
+                        <span class="title">
+                            {{$category->name}}
+                        </span>
+                    </a>
+                    <span class="article-count">
+                        <span class="font-bold">
+                            Articles:
+                        </span>
+                        {{count($category->articles)}}
+                    </span>
+                </div>
+            @endforeach
+        </div> --}}
+        {{$categories->links()}}
+    </x-container>
+</x-layout>
+
 <x-layout>
     <x-container>
         <h1>Manage categoris</h1>
