@@ -464,9 +464,10 @@ F
     }
 
     .btn-size-xs{
-        @apply px-2;
-        @apply py-1;
-        @apply text-sm;
+        @apply px-1;
+        @apply py-0.5;
+        @apply text-xs;
+        @apply font-normal;
     }
 
     /* Default */
@@ -844,6 +845,40 @@ F
         @apply no-underline;
         @apply text-xl;
         @apply text-black;
+    }
+
+
+    /* Tables */
+
+    table.content-table{
+        @apply w-full;
+        
+    }
+
+    table.content-table>thead{
+        @apply border;
+        @apply p-20;
+        @apply m-4;
+        @apply bg-yellow-400;
+        @apply border-b-2;
+        @apply border-b-gray-300;
+    }
+
+    table.content-table>thead>tr>th{
+        @apply font-bold;
+        @apply px-4;
+        @apply py-4;
+        @apply text-left;
+    }
+
+    table.content-table>tbody>tr>td{
+        @apply border-b;
+        @apply px-4;
+        @apply py-3;
+        @apply text-sm;
+        @apply font-roboto;
+        @apply h-full;
+        @apply text-gray-600;
     }
     
 

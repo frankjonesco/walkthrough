@@ -14,7 +14,7 @@
                 @csrf
                 <input type="hidden" name="hex" value="{{$article->hex}}">
                 <button type="submit" class="btn-success">Yes, delete this</button>
-                <button type="button" class="btn-danger">Cancel</button>
+                <a href="{{ url()->previous() }}" class="btn-danger">Cancel</a>
             </form>
         </div>
     </x-container>

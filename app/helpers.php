@@ -26,11 +26,15 @@ use Illuminate\Support\Str;
 
     // Show date and time
     if(!function_exists('showDateTime')){
-        function showDateTime($date){
+        function showDateTime($date, $format = null){
 
             $time = $date;
             // 2 May 2023 at 15:42
             $date_format = 'F j, Y';
+            if($format == 'short'){
+                $date_format = 'd/m/y';
+            }
+            
             $formatted_date = $date->format($date_format);
                 
             $time_format = 'H:i';
@@ -39,6 +43,28 @@ use Illuminate\Support\Str;
             return $formatted_date.' at '.$formatted_time;
         }
     }
+
+    // Show colored status
+    if(!function_exists('showColoredStatus')){
+        function showColoredStatus(string $status){
+
+            switch ($status){
+              case "public":
+                $text_color = 'text-green-600';
+                break;
+              case "private":
+                $text_color = 'text-red-600';
+                break;
+              default:
+                $text_color = 'text-gray-600';
+            }
+
+            return '<span class="'.$text_color.'"><i class="fa-solid fa-lock mr-2"></i>'.ucfirst($status).'</span>';
+        }
+    }
+
+
+
 
 
     // Check if logged in user car edit an article
