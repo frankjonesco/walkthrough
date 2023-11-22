@@ -2,7 +2,6 @@
     <x-container>
         <h1>Create a new article</h1>
         <h2>Enter the information for this article.</h2>
-        
         <x-card-form-medium>
             
             <form action="/articles/store" method="POST">
