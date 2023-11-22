@@ -43,7 +43,7 @@
 
                 <div class="btn-row">
                     <button type="submit" class="btn btn-success">Create category</button>
-                    <a href="{{ url()->previous() }}" class="btn-danger">Cancel</a>
+                    <a href="/dashboard/categories" class="btn-danger">Cancel</a>
                 </div>
             </form>
         </x-card-form-medium>
