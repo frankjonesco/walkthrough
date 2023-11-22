@@ -73,11 +73,19 @@ class DashboardController extends Controller
         ]);
     }
 
-    // Show sandbox
-    public function showSandbox(){
+     // Show sandbox
+     public function showSandbox(){
         if(verifyPermissions() === false){
             return redirect('dashboard')->with('message', 'You don\'t have permission to view that page.');
         }
         return view('dashboard.sandbox');
+    }
+
+     // Show sandbox elements
+     public function showSandboxElements($elements = null){
+        if(verifyPermissions() === false){
+            return redirect('dashboard')->with('message', 'You don\'t have permission to view that page.');
+        }
+        return view('dashboard.sandbox-'.$elements);
     }
 }

@@ -284,7 +284,8 @@ F
 
     /* Slide Menu Styles */
 
-    #slideMenu{
+    #slideMenu,
+    .list-menu{
         @apply fixed;
         @apply top-0;
         @apply w-2/12;
@@ -298,7 +299,8 @@ F
         @apply ease-in;
     }
 
-    #slideMenu>.menu-heading{
+    #slideMenu>.menu-heading,
+    .list-menu>.menu-heading{
         @apply flex;
         @apply justify-between;
         @apply p-6;
@@ -306,7 +308,8 @@ F
         @apply text-white;
     }
 
-    #slideMenu>ul{
+    #slideMenu>ul,
+    .list-menu>ul{
         @apply text-xl;
         @apply text-black;
         font-family: 'Roboto Slab', serif;
@@ -315,7 +318,8 @@ F
         @apply font-bold;
     }
 
-    #slideMenu>ul>li{
+    #slideMenu>ul>li,
+    .list-menu>ul>li{
         @apply border-b-0;
         @apply border-yellow-500;
         @apply hover:border-0;
@@ -323,7 +327,8 @@ F
         @apply hover:text-white;
     }
 
-    #slideMenu>ul>li a{
+    #slideMenu>ul>li a,
+    .list-menu>ul>li a{
         @apply no-underline;
         @apply text-gray-900;
         @apply hover:text-white;
@@ -728,7 +733,12 @@ F
         @apply text-purple-800;
     }
 
-
+    .alert-default{
+        @apply alert;
+        @apply text-white;
+        @apply bg-gray-400;
+        @apply border-gray-500;
+    }
 
 
     /* Articles */
