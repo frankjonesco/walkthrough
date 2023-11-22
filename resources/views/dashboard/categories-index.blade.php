@@ -2,6 +2,11 @@
     <x-container>
         <h1>Manage categories</h1>
         <h2>Here you can manage the different news categories.</h2>
+        <div class="btn-row">
+            <a href="/categories/create" class="btn-success">
+                Create a new category
+            </a>
+        </div>
         <div class="border border-gray-200 p-8 rounded-xl">
             <table class="content-table">
                 <thead>
@@ -12,7 +17,9 @@
                         <th>Created</th>
                         <th>Updated</th>
                         <th>Status</th>
-                        <th class="flex justify-center">Actions</th>
+                        @if(verifyPermissions())
+                            <th class="flex justify-center">Actions</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -38,22 +45,24 @@
                             <td>{{showDateTime($category->created_at, 'short')}}</td>
                             <td>{{showDateTime($category->updated_at, 'short')}}</td>
                             <td>{!!showColoredStatus($category->status)!!}</td>
-                            <td>
-                                <div class="flex gap-2 items-end justify-end">
-                                    <a href="/categories/{{$category->hex}}/edit" class="btn-success-xs">
-                                        <i class="fa-solid fa-pencil"></i>
-                                        Edit text
-                                    </a>
-                                    <a href="/categories/{{$category->hex}}/image" class="btn-info-xs">
-                                        <i class="fa-regular fa-image"></i>
-                                        Change image
-                                    </a>
-                                    <a href="/categories/{{$category->hex}}/confirm-delete" class="btn-danger-xs">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                        Delete
-                                    </a>
-                                </div>
-                            </td>
+                            @if(verifyPermissions($category))
+                                <td>
+                                    <div class="flex gap-2 items-end justify-end">
+                                        <a href="/categories/{{$category->hex}}/edit" class="btn-success-xs">
+                                            <i class="fa-solid fa-pencil"></i>
+                                            Edit text
+                                        </a>
+                                        <a href="/categories/{{$category->hex}}/image" class="btn-info-xs">
+                                            <i class="fa-regular fa-image"></i>
+                                            Change image
+                                        </a>
+                                        <a href="/categories/{{$category->hex}}/confirm-delete" class="btn-danger-xs">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

@@ -434,6 +434,7 @@ F
 
     .btn-row{
         @apply text-center;
+        @apply mb-12;
     }
 
     .btn{
