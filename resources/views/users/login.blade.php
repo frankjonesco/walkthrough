@@ -1,6 +1,5 @@
 <x-layout>
     <x-container>
-        
         <h1>Log in</h1>
         <h2>Log in to your account</h2>
         <x-card-form-thin>

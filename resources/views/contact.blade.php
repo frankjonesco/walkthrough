@@ -15,32 +15,21 @@
                 <div class="form-element ml-3">
                     <label for="email">Your email</label>
                     <input type="email" name="email" placeholder="Enter your email" value="{{old('email')}}">
-                    @error('email')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
+                    <x-form-error element="email" />
                 </div>
                 {{-- Subject --}}
                 <div class="form-element col-span-2">
                     <label for="subject">Subject</label>
                     <input type="text" name="subject" placeholder="Message subject" value="{{old('subject')}}">
-                    @error('subject')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
+                    <x-form-error element="subject" />
                 </div>
                 {{-- Message --}}
                 <div class="form-element col-span-2">
                     <label for="message">Message</label>
                     <textarea name="message" rows="4" placeholder="Write your message">{{old('message')}}</textarea>
-                    @error('message')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
+                    <x-form-error element="message" />
                 </div>
+                {{-- Submit --}}
                 <div class="btn-row col-span-2">
                     <button type="submit" class="btn btn-success">Send message</button>
                     <a href="/" class="btn-danger">Cancel</a>

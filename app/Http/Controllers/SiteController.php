@@ -19,6 +19,9 @@ class SiteController extends Controller
     // Show homepage
     public function index(){
         return view('home', [
+            'page_heading' => 'Welcome to the '.config('app.name').' project',
+            'page_subheading' => 'A complete guide to setting up a CRUD application in Laravel 10.',
+            
             'articles' => $this->site->publicArticles(true)
         ]);
     }
