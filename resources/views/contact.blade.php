@@ -2,7 +2,7 @@
     <x-container>
         <h1>Contact us</h1>
         <h2>Got a question? Reach out and we will get back to you as soon as we can.</h2>
-        <x-card-form-edium>
+        <x-card-form-medium>
             <form action="/contact" method="POST" class="grid grid-cols-2">
                 @csrf
                 {{-- Name --}}

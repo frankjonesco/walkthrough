@@ -11,27 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     // Show login form
-    public function showLoginForm(){
-        $meta = [
-            'title' => 'Login | '.config('app.name').' | Gripping news | A jar of humour',
-            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-            'keywords' => 'news, news articles',
-        ];
-        return view('users.login', [
-            'meta' => $meta
-        ]);
+    public function viewLoginForm(){
+        return view('users.login');
     }
 
     // Show registration form
-    public function showRegistrationForm(){
-        $meta = [
-            'title' => 'Registration | '.config('app.name').' | Gripping news | A jar of humour',
-            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-            'keywords' => 'news, news articles',
-        ];
-        return view('users.registration', [
-            'meta' => $meta
-        ]);
+    public function viewRegistrationForm(){
+        return view('users.registration');
     }
 
     // Store new user

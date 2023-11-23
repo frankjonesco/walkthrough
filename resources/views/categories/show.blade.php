@@ -1,4 +1,4 @@
-<x-layout :meta="$meta">
+<x-layout>
     <x-container>
         <div class="breadcrums mx-auto w-fit text-sm">
             <span>

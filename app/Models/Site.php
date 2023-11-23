@@ -105,7 +105,7 @@ class Site extends Model
     // Save image (update)
     public function saveImage($request, $item, string $directory = null){
         $image = new ImageProcess();
-        $item->image = $image->upload($request, $item, $directory, $this);
+        $item->image = $image->upload($request, $item, $directory);
         return $item;
     }
 

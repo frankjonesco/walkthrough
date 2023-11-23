@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
 
     // List search results
-    public function searchResults(Request $request){
+    public function indexSearchResults(Request $request){
         $articles = $this->site->searchArticles($request->search_term, 'public', true);
         return view('articles.index', [
             'articles' => $articles,
@@ -44,9 +44,11 @@ class ArticleController extends Controller
         if($slug === null)
             return redirect('articles/'.$article->hex.'/'.$article->slug);
         $article->addView();
+
+        
+
         return view('articles.show', [
             'article' => $article->fetch('public'),
-            'meta' => $article->metadata()
         ]);
     }
 
@@ -54,7 +56,7 @@ class ArticleController extends Controller
     // Show form for creating an article
     public function create(){
         return view('articles.create', [
-            'categories' => $this->site->categories()
+            'categories' => $this->site->allCategories()
         ]);
     }
 
@@ -131,7 +133,7 @@ class ArticleController extends Controller
         $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100'
         ]);
-
+        // dd($article);
         if($request->hasFile('image')){
             $this->site->saveImage($request, $article, 'articles');
         }

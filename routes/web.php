@@ -19,16 +19,32 @@ use App\Http\Controllers\DashboardController;
 */
 
 
+/*
+|--------------------------------------------------------------------------
+| KEY DEFINITIONS
+|--------------------------------------------------------------------------
+|
+|   INDEX.......List records
+|   View........View single page
+|   SHOW........Show single record
+|   CREATE......Show form for creating a record
+|   STORE.......Save record to the database
+|   EDIT........Show form to edit record
+|   UPDATE......Save updated record to database
+|   DESTROY.....Delete record forever
+|
+*/
+
+
 
 // SITE CONTROLLER
 
 // SiteController routes
 Route::controller(SiteController::class)->group(function () {
-    Route::get('/', 'showHome');
-    Route::get('/articles', 'showPosts');
-    Route::get('/contact', 'showContact');
-    Route::get('/terms', 'showTerms');
-    Route::get('/privacy', 'showPrivacy');
+    Route::get('/', 'index');
+    Route::get('/contact', 'viewContact');
+    Route::get('/terms', 'viewTerms');
+    Route::get('/privacy', 'viewPrivacy');
 });
 
 
@@ -51,8 +67,8 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
 
 // UserController routes (guest users)
 Route::controller(UserController::class)->middleware('guest')->group(function () {
-    Route::get('/login', 'showLoginForm')->name('login');
-    Route::get('/signup', 'showRegistrationForm');
+    Route::get('/login', 'viewLoginForm')->name('login');
+    Route::get('/signup', 'viewRegistrationForm');
     Route::post('/users/store', 'store');
     Route::post('/users/authenticate', 'authenticate');
 });
@@ -104,7 +120,7 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function 
 // ArticleController routes (all users)
 Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles', 'index');
-    Route::post('/search', 'searchResults');
+    Route::post('/search', 'indexSearchResults');
     Route::get('/articles/{article}/{slug}', 'show');
     Route::get('/articles/{article}', 'show');
     Route::get('/tags/{tag}', 'showArticlesWithTag');

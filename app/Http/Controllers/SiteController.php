@@ -2,61 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+
+    protected $site, $article, $category;
+    
+    public function __construct(){
+        $this->site = new Site();
+        $this->article = new Article();
+    }
+    
     // Show homepage
-    public function showHome(){
-        $articles = Article::where('status', 'public')->latest()->paginate(12);
-        $meta = [
-            'title' => config('app.name').' | Gripping news | A jar of humour',
-            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-            'keywords' => 'news, news articles',
-        ];
+    public function index(){
         return view('home', [
-            'articles' => $articles,
-            'meta' => $meta,
+            'articles' => $this->site->publicArticles(true)
         ]);
     }
 
-    // Show about
-    public function showAbout(){
-        return view('about');
-    }
-
-    // Show posts
-    public function showPosts(){
-        return view('posts');
-    }
-
-    // Show contact
-    public function showContact(){
+    // View contact page
+    public function viewContact(){
         return view('contact');
     }
 
-    // Show terms
-    public function showTerms(){
-        $meta = [
-            'title' => 'Terms & conditions | '.config('app.name').' | Gripping news | A jar of humour',
-            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-            'keywords' => 'news, news articles',
-        ];
-        return view('terms', [
-            'meta' => $meta
-        ]);
+    // View terms and conditions
+    public function viewTerms(){
+        return view('terms');
     }
 
-    // Show privacy
-    public function showPrivacy(){
-        $meta = [
-            'title' => 'Privacy policy | '.config('app.name').' | Gripping news | A jar of humour',
-            'description' => 'Open news topics on whatever I want to talk about. You can read some of this shit if you like.',
-            'keywords' => 'news, news articles',
-        ];
-        return view('privacy', [
-            'meta' => $meta
-        ]);
+    // Show privacy policy
+    public function viewPrivacy(){
+        return view('privacy');
     }
 }

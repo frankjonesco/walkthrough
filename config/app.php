@@ -19,9 +19,10 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     'meta' => [
-        'title' => 'Walkthough',
-        'description' => 'PIG',
-        'keywords' => 'PIG',
+        'title' => env('APP_NAME', 'Laravel').' | Gripping News | A little jar of humour',
+        'description' => 'At '.env('APP_NAME', 'Laravel').', our team write about whatever they want to write about any time they want. We have built a vast library of news media and we organise and cross-reference it to create exciting topical journeys. You can read some of it if you like.',
+        'keywords' => 'news, media, articles',
+        'suffix' => env('APP_NAME', 'Laravel').' News | A little jar of humour'
     ],
 
     /*

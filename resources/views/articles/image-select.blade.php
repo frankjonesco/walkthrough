@@ -8,7 +8,7 @@
                     @csrf
                     <span class="inline-block mx-auto mb-10">
                         <button id="uploadButton" type="button" class="btn-success mx-auto" onclick="document.getElementById('image').click()" >Change image</button>
-                        <input aria-describedby="image_help" id="image" name="image" type="file" class="opacity-100 w-full">
+                        <input aria-describedby="image_help" id="image" name="image" type="file" class="opacity-0 w-0">
                         @error('image')
                             <p class="text-error">{{$message}}</p>
                         @enderror

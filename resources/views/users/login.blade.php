@@ -1,4 +1,4 @@
-<x-layout :meta="$meta">
+<x-layout>
     <x-container>
         <x-card-form-thin>
             <h1>Log in</h1>

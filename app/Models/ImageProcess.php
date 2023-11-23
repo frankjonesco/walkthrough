@@ -13,13 +13,26 @@ class ImageProcess extends Model
     use HasFactory;
 
     // Upload image
-    public function upload($request, $item, $target, $image){
+    public function upload($request, $item, $target){
+
+        // Unique name for new file
         $image_name = Str::random('6').'-'.time().'.webp';
-        $directory_path = public_path('images/'.$target.'/'.$image->hex);
+
+        // Target path to save new file
+        $directory_path = public_path('images/'.$target.'/'.$item->hex);
+
+        // Store the uploaded file
         $request->file('image')->move($directory_path, $image_name);
+
+        // Encode image to desired format
         self::encode($directory_path, $image_name);
-        // self::deleteOtherFiles($directory_path, $image_name);
-        self::saveToDatabase($image, $image_name, $item, $target);
+
+        // Delete the legacy files from the target directory
+        self::deleteOtherFiles($directory_path, $image_name);
+
+        // Save the new image file name to the database
+        self::saveToDatabase($request, $image_name, $item, $target);
+        
         // self::batchSizes(Image::make($directory_path.'/'.$image_name), 480, $directory_path, $image_name);
         return true;
     }
