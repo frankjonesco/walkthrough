@@ -666,7 +666,7 @@ F
     /* Form elements */
 
     div.form-element{
-        @apply mb-6;
+        @apply mb-0;
         @apply flex;
         @apply flex-col;
     }
@@ -688,6 +688,8 @@ F
         @apply border;
         @apply px-4;
         @apply py-2;
+        @apply outline-slate-400;
+        @apply placeholder-gray-400;
     }
 
     p.form-error{
@@ -696,6 +698,9 @@ F
         @apply mt-3;
     }
 
+    select:not(:valid) {
+        @apply text-gray-400;
+      }
 
     /* Alerts */ 
 
