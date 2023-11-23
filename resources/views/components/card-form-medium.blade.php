@@ -1,3 +1,3 @@
-<div {{ $attributes->merge(['class' => 'card-form-medium bg-neutral-50']) }}>
+<div {{ $attributes->merge(['class' => 'card-form-medium']) }}>
     {{$slot}}
 </div>

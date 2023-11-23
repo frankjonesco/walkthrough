@@ -15,7 +15,6 @@
                                 {{$message}}
                             </p>
                         @enderror
-
                     </div>
 
                     {{-- Last name --}}
@@ -28,7 +27,6 @@
                                 {{$message}}
                             </p>
                         @enderror
-                        
                     </div>
 
                     {{-- Email --}}

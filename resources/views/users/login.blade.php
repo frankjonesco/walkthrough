@@ -1,9 +1,10 @@
 <x-layout>
     <x-container>
+        
+        <h1>Log in</h1>
+        <h2>Log in to your account</h2>
         <x-card-form-thin>
-            <h1>Log in</h1>
-            <h2>Log in to your account</h2>
-            <form action="/users/authenticate" method="POST" class="flex flex-col">
+            <form action="/users/authenticate" method="POST" class="grid grid-cols-1 gap-10">
                 @csrf
                 {{-- Email --}}
                 <div class="form-element">
@@ -31,10 +32,17 @@
 
                 </div>
 
-                <button type="submit" class="btn-success">Log in</button>
-
-                <p>Don't have an account yet?<br><a href="/signup">Sign up</a></p>
-            </x-card-form-thin>
-        </div> 
+                <div class="text-center">
+                    <button type="submit" class="btn-success">Log in</button>
+                    <p>
+                        Don't have an account yet?
+                        <br>
+                        <a href="/signup">
+                            Sign up
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </x-card-form-thin>
     </x-container>
 </x-layout>
