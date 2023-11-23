@@ -44,9 +44,6 @@ class ArticleController extends Controller
         if($slug === null)
             return redirect('articles/'.$article->hex.'/'.$article->slug);
         $article->addView();
-
-        
-
         return view('articles.show', [
             'article' => $article->fetch('public'),
         ]);

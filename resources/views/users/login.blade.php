@@ -10,28 +10,15 @@
                 <div class="form-element">
                     <label for="email">Email</label>
                     <input type="email" name="email" value="{{old('email')}}">
-
-                    @error('email')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
-
+                    <x-form-error element="email" />
                 </div>
-                
                 {{-- Password --}}
                 <div class="form-element">
                     <label for="password">Password</label>
                     <input type="password" name="password">
-
-                    @error('password')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
-
+                    <x-form-error element="password" />
                 </div>
-
+                {{-- Submit --}}
                 <div class="text-center">
                     <button type="submit" class="btn-success">Log in</button>
                     <p>

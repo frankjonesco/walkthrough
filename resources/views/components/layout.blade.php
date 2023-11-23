@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
+    {{-- Metadata --}}
     <title>{{getMetadata('title')}}</title>
     <meta name="description" content="{{getMetadata('description')}}" />
     <meta name="keywords" content="{{getMetadata('keywords')}}" />
@@ -15,16 +15,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,700;1,300;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    {{-- Stylesheets & Javascript --}}
     @vite('resources/css/app.css')
 
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
     <x-navbar />
-    <main class="mt-[8rem]">
+    <main>
         {{$slot}}
     </main>
     <x-footer />
-    {{-- Toast messages --}}
     <x-toast-message />
 </body>
 </html>

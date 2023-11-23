@@ -9,11 +9,7 @@
                 <div class="form-element mr-3">
                     <label for="name">Your name</label>
                     <input type="text" name="name" placeholder="Enter your name" value="{{old('name')}}">
-                    @error('name')
-                        <p class="form-error">
-                            {{$message}}
-                        </p>
-                    @enderror
+                    <x-form-error element="name" />
                 </div>
                 {{-- Email --}}
                 <div class="form-element ml-3">

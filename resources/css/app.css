@@ -22,7 +22,14 @@
     }
 
     body{
+        @apply flex;
+        @apply flex-col;
+        @apply min-h-screen;
         font-family: 'Roboto Slab', serif;
+    }
+
+    main{
+        @apply mt-[8rem];
     }
 
 
@@ -693,7 +700,7 @@ F
         @apply placeholder-gray-400;
     }
 
-    p.form-error{
+    span.form-error{
         @apply text-red-500;
         @apply text-xs;
         @apply mt-3;
