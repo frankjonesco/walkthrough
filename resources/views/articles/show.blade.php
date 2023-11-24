@@ -13,8 +13,7 @@
                 </a>
             </span>
         </div>
-        <h1>{{$article->title}}</h1>
-        <h2>{{$article->caption}}</h2>
+        <x-page-headings :page-heading="getPageHeading('main', $article)" :page-subheading="getPageHeading('sub', $article)" />
 
         <div class="flex border-t border-t-gray-200 pt-8 px-3">
 

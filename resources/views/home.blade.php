@@ -1,8 +1,3 @@
-<x-layout>
-    <x-container>
-        <x-page-headings page_heading="as" page_subheading="fgfg" />
-
-
-        <x-articles-grid :articles="$articles" />
-    </x-container>
-</x-layout>
+<x-page :page-headings='$page_headings'>
+    <x-articles-grid :articles="$articles" />
+</x-page>
