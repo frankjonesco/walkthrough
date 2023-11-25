@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
 
-    protected $site, $article, $category;
+    protected $site, $article;
     
     public function __construct(){
         $this->site = new Site();
@@ -19,7 +19,7 @@ class SiteController extends Controller
     // Show homepage
     public function index(){
         return view('home', [
-            'page_headings' => pageHeadings('I love main heading', 'But I like subheadings even better!'),
+            'page_headings' => pageHeadings('Welcome to the '.config('app.name').' project', 'A complete guide to setting up a <span class="font-bold">CRUD application</span> in Laravel 10.'),
             'articles' => $this->site->publicArticles(true)
         ]);
     }
@@ -38,7 +38,7 @@ class SiteController extends Controller
         ]);
     }
 
-    // Show privacy policy
+    // View privacy policy
     public function viewPrivacy(){
         return view('privacy', [
             'page_headings' => pageHeadings('Privacy policy', 'How we value your privacy and respect the use of you personal data.'),

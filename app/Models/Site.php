@@ -11,6 +11,16 @@ class Site extends Model
     use HasFactory;
 
     // RETRIEVAL METHODS
+
+    // USERS
+
+    // Logged in user
+
+    public function loggedInUser(){
+        return User::where('id', auth()->user()->id)->first();
+    }
+
+
     // ARTICLES
 
     // Get public articles

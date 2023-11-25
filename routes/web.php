@@ -25,7 +25,7 @@ use App\Http\Controllers\DashboardController;
 |--------------------------------------------------------------------------
 |
 |   INDEX.......List records
-|   View........View single page
+|   VIEW........View single page
 |   SHOW........Show single record
 |   CREATE......Show form for creating a record
 |   STORE.......Save record to the database
@@ -54,13 +54,13 @@ Route::controller(SiteController::class)->group(function () {
 // UserController routes (auth only)
 Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::get('profile', 'showProfile');
-    Route::get('profile/edit', 'editProfile');
+    Route::get('profile/edit', 'viewEditProfileForm');
     Route::post('profile/update', 'updateProfile');
-    Route::get('profile/edit-password', 'editPassword');
+    Route::get('profile/edit-password', 'viewEditPasswordForm');
     Route::post('/profile/update-password', 'updatePassword');
-    Route::get('/profile/image', 'editImage');
+    Route::get('/profile/image', 'viewEditProfileImageForm');
     Route::post('/profile/image/upload', 'uploadImage');
-    Route::get('/profile/image/crop', 'cropImage');
+    Route::get('/profile/image/crop', 'viewCropImageForm');
     Route::post('/profile/image/render', 'renderImage');
     Route::post('/logout', 'logout');
 });

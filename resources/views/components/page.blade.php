@@ -1,6 +1,6 @@
 <x-layout>
     <x-container>
-        <x-page-headings :page-headings="$pageHeadings['main']" :page-subheadings="$pageHeadings['sub']" />
+        <x-page-headings :page-headings="$pageHeadings" />
         {{$slot}}
     </x-container>
 </x-layout>

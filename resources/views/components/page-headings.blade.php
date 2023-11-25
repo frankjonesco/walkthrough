@@ -1,4 +1,4 @@
 
-<h1>{{($pageHeadings != null) ? $pageHeadings : config('app.name')}}</h1>
-<h2>{{($pageSubheadings != null) ? $pageSubheadings : 'Welcome to the site.'}}</h2>
+<h1>{{$pageHeadings['main'] ?: config('app.name')}}</h1>
+<h2>{!!$pageHeadings['sub'] ?: 'Welcome to the site.'!!}</h2>
 

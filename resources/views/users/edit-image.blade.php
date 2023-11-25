@@ -1,7 +1,5 @@
-<x-layout>
-    <x-container>
-        <h1>Edit profile picture</h1>
-        <h2>Click the button to select an image.</h2>
+<x-page :page-headings='$page_headings'>
+    <x-card-form-medium>
         <form id="form" action="/profile/image/upload" method="POST" enctype="multipart/form-data" class="flex justify-center">
             @csrf
             
@@ -21,5 +19,5 @@
                 document.getElementById("form").submit();
             };
         </script>
-    </x-container>
-</x-layout>
+    </x-card-form-medium>
+</x-page>
