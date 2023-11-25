@@ -315,6 +315,10 @@ F
         @apply ease-in;
     }
 
+    .list-menu{
+        @apply z-40;
+    }
+
     #slideMenu>.menu-heading,
     .list-menu>.menu-heading{
         @apply flex;

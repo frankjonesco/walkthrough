@@ -134,7 +134,7 @@ class UserController extends Controller
     }
 
 
-    // Update password
+    // UPDATE PASSWORD
     public function updatePassword(Request $request){
         // Validate for fields
         $formFields = $request->validate([

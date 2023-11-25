@@ -36,8 +36,13 @@ class Category extends Model
 
     // RELATIONAL MAPPING
 
-    // Relationship to user
+    // Articles in this category
     public function articles(){
+        return $this->hasMany(Article::class);
+    }
+
+    // Public articles in this category
+    public function public_articles(){
         return $this->hasMany(Article::class);
     }
 

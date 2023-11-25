@@ -95,7 +95,6 @@ Route::controller(CategoryController::class)->middleware('auth')->group(function
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index');
     Route::get('/categories/{category}/{slug}', 'show');
-    Route::get('/categories/{category}', 'show');
 });
 
 
@@ -132,8 +131,8 @@ Route::controller(ArticleController::class)->group(function () {
 
 // DashboardController (auth users)
 Route::controller(DashboardController::class)->middleware('auth')->group(function(){
-    Route::get('/dashboard/sandbox/{elements}', 'showSandboxElements');
     Route::get('/dashboard/sandbox', 'showSandbox');
+    Route::get('/dashboard/sandbox/{elements}', 'showSandbox');
     Route::get('/dashboard/articles', 'articlesIndex');
     Route::get('/dashboard/categories', 'categoriesIndex');
     Route::get('/dashboard', 'index');

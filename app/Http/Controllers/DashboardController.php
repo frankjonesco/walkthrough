@@ -48,6 +48,7 @@ class DashboardController extends Controller
             'buttons' => $buttons
         ]);
     }
+    
 
     // LIST ARTICLES INDEX
     public function articlesIndex(){
@@ -60,6 +61,7 @@ class DashboardController extends Controller
         ]);
     }
 
+
     // LIST CATEGORIES INDEX
     public function categoriesIndex(){
         if(verifyPermissions() === false){
@@ -70,6 +72,7 @@ class DashboardController extends Controller
             'categories' => Category::orderBy('created_at', 'DESC')->latest()->paginate(12)
         ]);
     }
+
 
     // VIEW SANDBOX
     public function showSandbox($elements = 'text'){

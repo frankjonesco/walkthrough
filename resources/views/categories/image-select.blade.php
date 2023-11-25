@@ -1,6 +1,5 @@
-<x-layout>
-    <x-container>
-        <h1>Edit category image</h1>
+<x-page :page-headings="$page_headings">
+    <x-card-form-medium>
         <form id="form" action="/categories/{{$category->hex}}/image/upload" method="POST" enctype="multipart/form-data" class="flex justify-center">
             @csrf
             
@@ -18,5 +17,5 @@
                 document.getElementById("form").submit();
             };
         </script>
-    </x-container>
-</x-layout>
+    </x-card-form-medium>
+</x-page>
