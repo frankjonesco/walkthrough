@@ -1,7 +1,4 @@
-<x-layout>
-    <x-container>
-        <h1>Crop image</h1>
-        <h2>Drag your mouse across the image to select the crop area and click Crop image.</h2>
+<x-page
         <div class="flex gap-12">
             <div class="w-2/3 bg-yellow-500">
                 <img id="image" src="{{$user->getImage()}}" alt="" style="height:500px;" class="w-1/3">

@@ -1,4 +1,4 @@
-<x-sandbox>
+<x-sandbox :page-headings='$page_headings'>
     <div class="grid grid-cols-2 gap-6">
         <div class="alert-success">
             This is an alert using the <b>alert-success</b> class.

@@ -1,4 +1,4 @@
-<footer class="bg-black text-white mt-auto">
+<footer class="bg-black text-white mt-auto m">
     <x-container>
         <div class="flex justify-between items-center py-10">
             <div>

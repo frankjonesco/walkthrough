@@ -53,11 +53,7 @@ class User extends Authenticatable
 
     // HELPER FUNCTIONS
 
-    // Logged in user
-
-    public function loggedInUser(){
-        return User::where('id', auth()->user->id)->first();
-    }
+    
 
     // Get full name
     public function fullName(){

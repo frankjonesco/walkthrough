@@ -1,4 +1,4 @@
-<x-sandbox>
+<x-sandbox :page-headings='$page_headings'>
     <div class="grid grid-cols-2 gap-6">
         <ul class="mb-12 flex flex-col justify-center items-center gap-6">
             <li class="border-b pb-3 mb-3 font-bold text-2xl">.btn-success</li>

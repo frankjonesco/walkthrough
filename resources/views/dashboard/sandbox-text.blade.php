@@ -1,4 +1,4 @@
-<x-sandbox>
+<x-sandbox :page-headings='$page_headings'>
     <ul class="mb-12">
         <li class="border-b pb-3 mb-3 font-bold text-2xl">&lt;h1/&gt;</li>
         <li><h1>This is what the text looks like.</h1></li>

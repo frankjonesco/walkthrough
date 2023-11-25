@@ -130,7 +130,7 @@ class ArticleController extends Controller
         $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100'
         ]);
-        // dd($article);
+
         if($request->hasFile('image')){
             $this->site->saveImage($request, $article, 'articles');
         }
