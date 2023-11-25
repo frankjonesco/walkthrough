@@ -49,7 +49,7 @@ class Site extends Model
 
 
     // Search articles
-    public function searchArticles(string $search_term = null, string $status = 'public', bool $paginate = false, int $per_page = 12){
+    public function publicArticlesSearchResults(string $search_term = null, bool $paginate = false, int $per_page = 12){
         if($paginate)
             $articles = Article::where('title', 'LIKE', '%'.$search_term.'%')
             ->where('status', 'public')
@@ -71,7 +71,7 @@ class Site extends Model
     }
 
     // Get articles with tag
-    public function articlesWithTag(string $tag = null, bool $paginate = false, int $per_page = 12){
+    public function publicArticlesWithTag(string $tag = null, bool $paginate = false, int $per_page = 12){
         if($paginate)
             return Article::where('tags','LIKE','%'.$tag.'%')->where('status', 'public')->latest()->paginate($per_page);
         else
